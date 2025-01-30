@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <!-- Külső könyvtárak betöltése -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
@@ -143,6 +146,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigáció -->
     <nav class="nav">
@@ -396,1285 +400,1287 @@
                     });
                     borderStyleSelect.addEventListener('change', updateBoxModel);
 
-    // Kezdeti állapot beállítása
-    updateBoxModel();
+                    // Kezdeti állapot beállítása
+                    updateBoxModel();
 
-    // Animáció hozzáadása az értékek változtatásakor
-    function addBoxAnimation() {
-        anime({
-            targets: '.box-model-container',
-            scale: [0.95, 1],
-            duration: 300,
-            easing: 'easeOutElastic(1, .8)'
-        });
-    }
+                    // Animáció hozzáadása az értékek változtatásakor
+                    function addBoxAnimation() {
+                        anime({
+                            targets: '.box-model-container',
+                            scale: [0.95, 1],
+                            duration: 300,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                    }
 
-    [...marginSliders, ...paddingSliders, borderWidthSlider].forEach(slider => {
-        slider.addEventListener('input', addBoxAnimation);
-    });
-    borderStyleSelect.addEventListener('change', addBoxAnimation);
-});
-</script>
-</section>
+                    [...marginSliders, ...paddingSliders, borderWidthSlider].forEach(slider => {
+                        slider.addEventListener('input', addBoxAnimation);
+                    });
+                    borderStyleSelect.addEventListener('change', addBoxAnimation);
+                });
+            </script>
+        </section>
 
-<!-- Flexbox szekció -->
-<section id="flexbox">
-    <h2 class="section-title">
-        <i class="fas fa-columns"></i>
-        Flexbox Layout
-    </h2>
-    <div class="card">
-        <div class="flexbox-demo">
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Container beállítások</label>
-                    <div class="select-group">
-                        <select id="flex-direction">
-                            <option value="row">flex-direction: row</option>
-                            <option value="column">flex-direction: column</option>
-                            <option value="row-reverse">flex-direction: row-reverse</option>
-                            <option value="column-reverse">flex-direction: column-reverse</option>
-                        </select>
-                        <select id="justify-content">
-                            <option value="flex-start">justify-content: flex-start</option>
-                            <option value="center">justify-content: center</option>
-                            <option value="flex-end">justify-content: flex-end</option>
-                            <option value="space-between">justify-content: space-between</option>
-                            <option value="space-around">justify-content: space-around</option>
-                        </select>
-                        <select id="align-items">
-                            <option value="stretch">align-items: stretch</option>
-                            <option value="flex-start">align-items: flex-start</option>
-                            <option value="center">align-items: center</option>
-                            <option value="flex-end">align-items: flex-end</option>
-                        </select>
-                        <select id="flex-wrap">
-                            <option value="nowrap">flex-wrap: nowrap</option>
-                            <option value="wrap">flex-wrap: wrap</option>
-                            <option value="wrap-reverse">flex-wrap: wrap-reverse</option>
-                        </select>
+        <!-- Flexbox szekció -->
+        <section id="flexbox">
+            <h2 class="section-title">
+                <i class="fas fa-columns"></i>
+                Flexbox Layout
+            </h2>
+            <div class="card">
+                <div class="flexbox-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Container beállítások</label>
+                            <div class="select-group">
+                                <select id="flex-direction">
+                                    <option value="row">flex-direction: row</option>
+                                    <option value="column">flex-direction: column</option>
+                                    <option value="row-reverse">flex-direction: row-reverse</option>
+                                    <option value="column-reverse">flex-direction: column-reverse</option>
+                                </select>
+                                <select id="justify-content">
+                                    <option value="flex-start">justify-content: flex-start</option>
+                                    <option value="center">justify-content: center</option>
+                                    <option value="flex-end">justify-content: flex-end</option>
+                                    <option value="space-between">justify-content: space-between</option>
+                                    <option value="space-around">justify-content: space-around</option>
+                                </select>
+                                <select id="align-items">
+                                    <option value="stretch">align-items: stretch</option>
+                                    <option value="flex-start">align-items: flex-start</option>
+                                    <option value="center">align-items: center</option>
+                                    <option value="flex-end">align-items: flex-end</option>
+                                </select>
+                                <select id="flex-wrap">
+                                    <option value="nowrap">flex-wrap: nowrap</option>
+                                    <option value="wrap">flex-wrap: wrap</option>
+                                    <option value="wrap-reverse">flex-wrap: wrap-reverse</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Item beállítások</label>
+                            <button class="btn" onclick="addFlexItem()">
+                                <i class="fas fa-plus"></i> Új elem hozzáadása
+                            </button>
+                            <button class="btn btn-warning" onclick="removeFlexItem()">
+                                <i class="fas fa-minus"></i> Elem eltávolítása
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label>Item beállítások</label>
-                    <button class="btn" onclick="addFlexItem()">
-                        <i class="fas fa-plus"></i> Új elem hozzáadása
-                    </button>
-                    <button class="btn btn-warning" onclick="removeFlexItem()">
-                        <i class="fas fa-minus"></i> Elem eltávolítása
-                    </button>
-                </div>
-            </div>
-            <div class="visualization">
-                <div id="flex-container" class="flex-demo-container">
-                    <div class="flex-item">1</div>
-                    <div class="flex-item">2</div>
-                    <div class="flex-item">3</div>
-                </div>
-            </div>
-            <div class="code-preview">
-                <pre><code class="language-css" id="flexbox-code">.container {
+                    <div class="visualization">
+                        <div id="flex-container" class="flex-demo-container">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                    </div>
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="flexbox-code">.container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
     flex-wrap: nowrap;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <style>
-        /* Flexbox szekció stílusai */
-        .flexbox-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
+            <style>
+                /* Flexbox szekció stílusai */
+                .flexbox-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
+                }
 
-        .select-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
+                .select-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
 
-        .flex-demo-container {
-            min-height: 300px;
-            background: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1rem;
-            display: flex;
-            transition: all 0.3s ease;
-        }
+                .flex-demo-container {
+                    min-height: 300px;
+                    background: var(--bg-primary);
+                    border: 2px solid var(--border-color);
+                    border-radius: 10px;
+                    padding: 1rem;
+                    display: flex;
+                    transition: all 0.3s ease;
+                }
 
-        .flex-item {
-            background: var(--accent-primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin: 0.25rem;
-            min-width: 60px;
-            min-height: 60px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+                .flex-item {
+                    background: var(--accent-primary);
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    margin: 0.25rem;
+                    min-width: 60px;
+                    min-height: 60px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
 
-        .flex-item:hover {
-            background: var(--accent-secondary);
-            transform: scale(1.05);
-        }
+                .flex-item:hover {
+                    background: var(--accent-secondary);
+                    transform: scale(1.05);
+                }
 
-        .btn {
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
+                .btn {
+                    background: var(--accent-primary);
+                    color: white;
+                    border: none;
+                    padding: 0.5rem 1rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    transition: all 0.3s ease;
+                }
 
-        .btn:hover {
-            background: var(--accent-secondary);
-        }
+                .btn:hover {
+                    background: var(--accent-secondary);
+                }
 
-        .btn-warning {
-            background: var(--warning);
-        }
+                .btn-warning {
+                    background: var(--warning);
+                }
 
-        .btn-warning:hover {
-            background: #d4ac0d;
-        }
-    </style>
+                .btn-warning:hover {
+                    background: #d4ac0d;
+                }
+            </style>
 
-    <script>
-        // Flexbox szekció szkriptje
-document.addEventListener('DOMContentLoaded', () => {
-    const flexContainer = document.getElementById('flex-container');
-    const flexDirection = document.getElementById('flex-direction');
-    const justifyContent = document.getElementById('justify-content');
-    const alignItems = document.getElementById('align-items');
-    const flexWrap = document.getElementById('flex-wrap');
-    const codePreview = document.getElementById('flexbox-code');
+            <script>
+                // Flexbox szekció szkriptje
+                document.addEventListener('DOMContentLoaded', () => {
+                    const flexContainer = document.getElementById('flex-container');
+                    const flexDirection = document.getElementById('flex-direction');
+                    const justifyContent = document.getElementById('justify-content');
+                    const alignItems = document.getElementById('align-items');
+                    const flexWrap = document.getElementById('flex-wrap');
+                    const codePreview = document.getElementById('flexbox-code');
 
-    let itemCount = 3;
+                    let itemCount = 3;
 
-    function updateFlexbox() {
-        flexContainer.style.display = 'flex';
-        flexContainer.style.flexDirection = flexDirection.value;
-        flexContainer.style.justifyContent = justifyContent.value;
-        flexContainer.style.alignItems = alignItems.value;
-        flexContainer.style.flexWrap = flexWrap.value;
+                    function updateFlexbox() {
+                        flexContainer.style.display = 'flex';
+                        flexContainer.style.flexDirection = flexDirection.value;
+                        flexContainer.style.justifyContent = justifyContent.value;
+                        flexContainer.style.alignItems = alignItems.value;
+                        flexContainer.style.flexWrap = flexWrap.value;
 
-        const code = `.container {
+                        const code = `.container {
     display: flex;
     flex-direction: ${flexDirection.value};
     justify-content: ${justifyContent.value};
     align-items: ${alignItems.value};
     flex-wrap: ${flexWrap.value};
 }`;
-        codePreview.textContent = code;
-        Prism.highlightElement(codePreview);
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
 
-        console.log('Flexbox properties updated:', {
-            flexDirection: flexContainer.style.flexDirection,
-            justifyContent: flexContainer.style.justifyContent,
-            alignItems: flexContainer.style.alignItems,
-            flexWrap: flexContainer.style.flexWrap
-        });
-    }
+                        console.log('Flexbox properties updated:', {
+                            flexDirection: flexContainer.style.flexDirection,
+                            justifyContent: flexContainer.style.justifyContent,
+                            alignItems: flexContainer.style.alignItems,
+                            flexWrap: flexContainer.style.flexWrap
+                        });
+                    }
 
-    window.addFlexItem = () => {
-        itemCount++;
-        const newItem = document.createElement('div');
-        newItem.className = 'flex-item';
-        newItem.textContent = itemCount;
-        flexContainer.appendChild(newItem);
+                    window.addFlexItem = () => {
+                        itemCount++;
+                        const newItem = document.createElement('div');
+                        newItem.className = 'flex-item';
+                        newItem.textContent = itemCount;
+                        flexContainer.appendChild(newItem);
 
-        anime({
-            targets: newItem,
-            scale: [0, 1],
-            opacity: [0, 1],
-            duration: 500,
-            easing: 'easeOutElastic(1, .8)'
-        });
-    };
+                        anime({
+                            targets: newItem,
+                            scale: [0, 1],
+                            opacity: [0, 1],
+                            duration: 500,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                    };
 
-    window.removeFlexItem = () => {
-        if (itemCount > 1) {
-            const lastItem = flexContainer.lastElementChild;
-            anime({
-                targets: lastItem,
-                scale: 0,
-                opacity: 0,
-                duration: 300,
-                easing: 'easeInOutQuad',
-                complete: () => {
-                    flexContainer.removeChild(lastItem);
-                }
-            });
-            itemCount--;
-        }
-    };
+                    window.removeFlexItem = () => {
+                        if (itemCount > 1) {
+                            const lastItem = flexContainer.lastElementChild;
+                            anime({
+                                targets: lastItem,
+                                scale: 0,
+                                opacity: 0,
+                                duration: 300,
+                                easing: 'easeInOutQuad',
+                                complete: () => {
+                                    flexContainer.removeChild(lastItem);
+                                }
+                            });
+                            itemCount--;
+                        }
+                    };
 
-    [flexDirection, justifyContent, alignItems, flexWrap].forEach(select => {
-        select.addEventListener('change', () => {
-            console.log(`${select.id} changed to: ${select.value}`);
-            updateFlexbox();
-        });
-    });
+                    [flexDirection, justifyContent, alignItems, flexWrap].forEach(select => {
+                        select.addEventListener('change', () => {
+                            console.log(`${select.id} changed to: ${select.value}`);
+                            updateFlexbox();
+                        });
+                    });
 
-    updateFlexbox();
-});
-    </script>
-</section>
+                    updateFlexbox();
+                });
+            </script>
+        </section>
 
-<!-- Pozicionálás szekció -->
-<section id="positioning">
-    <h2 class="section-title">
-        <i class="fas fa-arrows-alt"></i>
-        CSS Pozicionálás
-    </h2>
-    <div class="card">
-        <div class="position-demo">
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Position típusa</label>
-                    <select id="position-type">
-                        <option value="static">static (alapértelmezett)</option>
-                        <option value="relative">relative</option>
-                        <option value="absolute">absolute</option>
-                        <option value="fixed">fixed</option>
-                    </select>
-                </div>
-                <div class="control-group" id="offset-controls">
-                    <label>Eltolás</label>
-                    <div class="offset-sliders">
-                        <div class="offset-control">
-                            <span>Top:</span>
-                            <input type="range" min="-50" max="50" value="0" class="slider" id="top-offset">
-                            <span class="value">0px</span>
+        <!-- Pozicionálás szekció -->
+        <section id="positioning">
+            <h2 class="section-title">
+                <i class="fas fa-arrows-alt"></i>
+                CSS Pozicionálás
+            </h2>
+            <div class="card">
+                <div class="position-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Position típusa</label>
+                            <select id="position-type">
+                                <option value="static">static (alapértelmezett)</option>
+                                <option value="relative">relative</option>
+                                <option value="absolute">absolute</option>
+                                <option value="fixed">fixed</option>
+                            </select>
                         </div>
-                        <div class="offset-control">
-                            <span>Left:</span>
-                            <input type="range" min="-50" max="50" value="0" class="slider" id="left-offset">
-                            <span class="value">0px</span>
+                        <div class="control-group" id="offset-controls">
+                            <label>Eltolás</label>
+                            <div class="offset-sliders">
+                                <div class="offset-control">
+                                    <span>Top:</span>
+                                    <input type="range" min="-50" max="50" value="0" class="slider" id="top-offset">
+                                    <span class="value">0px</span>
+                                </div>
+                                <div class="offset-control">
+                                    <span>Left:</span>
+                                    <input type="range" min="-50" max="50" value="0" class="slider" id="left-offset">
+                                    <span class="value">0px</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>z-index</label>
+                            <input type="range" min="0" max="3" value="1" class="slider" id="z-index">
+                            <span class="value">1</span>
                         </div>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label>z-index</label>
-                    <input type="range" min="0" max="3" value="1" class="slider" id="z-index">
-                    <span class="value">1</span>
-                </div>
-            </div>
-            <div class="visualization">
-                <div class="position-container">
-                    <div class="reference-box">Referencia doboz</div>
-                    <div class="target-box">Mozgatható doboz</div>
-                </div>
-            </div>
-            <div class="code-preview">
-                <pre><code class="language-css" id="position-code">.target-box {
+                    <div class="visualization">
+                        <div class="position-container">
+                            <div class="reference-box">Referencia doboz</div>
+                            <div class="target-box">Mozgatható doboz</div>
+                        </div>
+                    </div>
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="position-code">.target-box {
     position: static;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <style>
-        /* Pozicionálás szekció stílusai */
-        .position-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
-
-        .position-container {
-            width: 100%;
-            height: 300px;
-            background: var(--bg-primary);
-            border: 2px solid var(--border-color);
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-            padding: 1rem;
-        }
-
-        .reference-box {
-            width: 150px;
-            height: 150px;
-            background: var(--bg-secondary);
-            border: 2px solid var(--border-color);
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            border-radius: 5px;
-        }
-
-        .target-box {
-            width: 100px;
-            height: 100px;
-            background: var(--accent-primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: static;
-        }
-
-        .target-box:hover {
-            background: var(--accent-secondary);
-        }
-
-        .offset-sliders {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .offset-control {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .offset-control span {
-            min-width: 50px;
-            color: var(--text-secondary);
-        }
-
-        .value {
-            color: var(--text-secondary);
-            min-width: 40px;
-            text-align: right;
-        }
-
-        #offset-controls {
-            display: none;
-        }
-    </style>
-
-    <script>
-        // Pozicionálás szekció szkriptje
-        document.addEventListener('DOMContentLoaded', () => {
-            const targetBox = document.querySelector('.target-box');
-            const positionType = document.getElementById('position-type');
-            const offsetControls = document.getElementById('offset-controls');
-            const topOffset = document.getElementById('top-offset');
-            const leftOffset = document.getElementById('left-offset');
-            const zIndex = document.getElementById('z-index');
-            const codePreview = document.getElementById('position-code');
-
-            function updatePosition() {
-                const position = positionType.value;
-                targetBox.style.position = position;
-
-                if (position === 'static') {
-                    targetBox.style.top = '';
-                    targetBox.style.left = '';
-                    offsetControls.style.display = 'none';
-                } else {
-                    targetBox.style.top = `${topOffset.value}px`;
-                    targetBox.style.left = `${leftOffset.value}px`;
-                    offsetControls.style.display = 'block';
+            <style>
+                /* Pozicionálás szekció stílusai */
+                .position-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
                 }
 
-                targetBox.style.zIndex = zIndex.value;
+                .position-container {
+                    width: 100%;
+                    height: 300px;
+                    background: var(--bg-primary);
+                    border: 2px solid var(--border-color);
+                    border-radius: 10px;
+                    position: relative;
+                    overflow: hidden;
+                    padding: 1rem;
+                }
 
-                // Kód előnézet frissítése
-                let code = `.target-box {
+                .reference-box {
+                    width: 150px;
+                    height: 150px;
+                    background: var(--bg-secondary);
+                    border: 2px solid var(--border-color);
+                    color: var(--text-secondary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 1rem;
+                    border-radius: 5px;
+                }
+
+                .target-box {
+                    width: 100px;
+                    height: 100px;
+                    background: var(--accent-primary);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: static;
+                }
+
+                .target-box:hover {
+                    background: var(--accent-secondary);
+                }
+
+                .offset-sliders {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                .offset-control {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+
+                .offset-control span {
+                    min-width: 50px;
+                    color: var(--text-secondary);
+                }
+
+                .value {
+                    color: var(--text-secondary);
+                    min-width: 40px;
+                    text-align: right;
+                }
+
+                #offset-controls {
+                    display: none;
+                }
+            </style>
+
+            <script>
+                // Pozicionálás szekció szkriptje
+                document.addEventListener('DOMContentLoaded', () => {
+                    const targetBox = document.querySelector('.target-box');
+                    const positionType = document.getElementById('position-type');
+                    const offsetControls = document.getElementById('offset-controls');
+                    const topOffset = document.getElementById('top-offset');
+                    const leftOffset = document.getElementById('left-offset');
+                    const zIndex = document.getElementById('z-index');
+                    const codePreview = document.getElementById('position-code');
+
+                    function updatePosition() {
+                        const position = positionType.value;
+                        targetBox.style.position = position;
+
+                        if (position === 'static') {
+                            targetBox.style.top = '';
+                            targetBox.style.left = '';
+                            offsetControls.style.display = 'none';
+                        } else {
+                            targetBox.style.top = `${topOffset.value}px`;
+                            targetBox.style.left = `${leftOffset.value}px`;
+                            offsetControls.style.display = 'block';
+                        }
+
+                        targetBox.style.zIndex = zIndex.value;
+
+                        // Kód előnézet frissítése
+                        let code = `.target-box {
     position: ${position};`;
 
-                if (position !== 'static') {
-                    code += `
+                        if (position !== 'static') {
+                            code += `
     top: ${topOffset.value}px;
     left: ${leftOffset.value}px;`;
-                }
+                        }
 
-                code += `
+                        code += `
     z-index: ${zIndex.value};
 }`;
 
-                codePreview.textContent = code;
-                Prism.highlightElement(codePreview);
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
 
-                // Animáció hozzáadása
-                anime({
-                    targets: '.target-box',
-                    scale: [0.95, 1],
-                    duration: 300,
-                    easing: 'easeOutElastic(1, .8)'
+                        // Animáció hozzáadása
+                        anime({
+                            targets: '.target-box',
+                            scale: [0.95, 1],
+                            duration: 300,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                    }
+
+                    // Eseménykezelők
+                    positionType.addEventListener('change', updatePosition);
+                    topOffset.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                        updatePosition();
+                    });
+                    leftOffset.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                        updatePosition();
+                    });
+                    zIndex.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.textContent = e.target.value;
+                        updatePosition();
+                    });
+
+                    // Kezdeti állapot
+                    updatePosition();
                 });
-            }
+            </script>
+        </section>
 
-            // Eseménykezelők
-            positionType.addEventListener('change', updatePosition);
-            topOffset.addEventListener('input', (e) => {
-                e.target.nextElementSibling.textContent = `${e.target.value}px`;
-                updatePosition();
-            });
-            leftOffset.addEventListener('input', (e) => {
-                e.target.nextElementSibling.textContent = `${e.target.value}px`;
-                updatePosition();
-            });
-            zIndex.addEventListener('input', (e) => {
-                e.target.nextElementSibling.textContent = e.target.value;
-                updatePosition();
-            });
+        <!-- Színek és háttér szekció -->
+        <section id="colors">
+            <h2 class="section-title">
+                <i class="fas fa-palette"></i>
+                CSS Színek és Háttér
+            </h2>
+            <div class="card">
+                <div class="colors-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Szín formátumok</label>
+                            <select id="color-format">
+                                <option value="hex">Hexadecimális (HEX)</option>
+                                <option value="rgb">RGB</option>
+                                <option value="hsl">HSL</option>
+                            </select>
+                        </div>
+                        <div class="color-controls">
+                            <!-- HEX controls -->
+                            <div id="hex-controls" class="color-input-group">
+                                <label>HEX kód:</label>
+                                <input type="text" id="hex-input" value="#2ecc71" class="color-input">
+                            </div>
 
-            // Kezdeti állapot
-            updatePosition();
-        });
-    </script>
-</section>
+                            <!-- RGB controls -->
+                            <div id="rgb-controls" class="color-input-group" style="display: none;">
+                                <div class="slider-container">
+                                    <label>Vörös (R):</label>
+                                    <input type="range" min="0" max="255" value="46" class="slider" id="red-slider">
+                                    <span class="value">46</span>
+                                </div>
+                                <div class="slider-container">
+                                    <label>Zöld (G):</label>
+                                    <input type="range" min="0" max="255" value="204" class="slider" id="green-slider">
+                                    <span class="value">204</span>
+                                </div>
+                                <div class="slider-container">
+                                    <label>Kék (B):</label>
+                                    <input type="range" min="0" max="255" value="113" class="slider" id="blue-slider">
+                                    <span class="value">113</span>
+                                </div>
+                            </div>
 
-<!-- Színek és háttér szekció -->
-<section id="colors">
-   <h2 class="section-title">
-       <i class="fas fa-palette"></i>
-       CSS Színek és Háttér
-   </h2>
-   <div class="card">
-       <div class="colors-demo">
-           <div class="control-panel">
-               <div class="control-group">
-                   <label>Szín formátumok</label>
-                   <select id="color-format">
-                       <option value="hex">Hexadecimális (HEX)</option>
-                       <option value="rgb">RGB</option>
-                       <option value="hsl">HSL</option>
-                   </select>
-               </div>
-               <div class="color-controls">
-                   <!-- HEX controls -->
-                   <div id="hex-controls" class="color-input-group">
-                       <label>HEX kód:</label>
-                       <input type="text" id="hex-input" value="#2ecc71" class="color-input">
-                   </div>
-
-                   <!-- RGB controls -->
-                   <div id="rgb-controls" class="color-input-group" style="display: none;">
-                       <div class="slider-container">
-                           <label>Vörös (R):</label>
-                           <input type="range" min="0" max="255" value="46" class="slider" id="red-slider">
-                           <span class="value">46</span>
-                       </div>
-                       <div class="slider-container">
-                           <label>Zöld (G):</label>
-                           <input type="range" min="0" max="255" value="204" class="slider" id="green-slider">
-                           <span class="value">204</span>
-                       </div>
-                       <div class="slider-container">
-                           <label>Kék (B):</label>
-                           <input type="range" min="0" max="255" value="113" class="slider" id="blue-slider">
-                           <span class="value">113</span>
-                       </div>
-                   </div>
-
-                   <!-- HSL controls -->
-                   <div id="hsl-controls" class="color-input-group" style="display: none;">
-                       <div class="slider-container">
-                           <label>Színezet (H):</label>
-                           <input type="range" min="0" max="360" value="145" class="slider" id="hue-slider">
-                           <span class="value">145°</span>
-                       </div>
-                       <div class="slider-container">
-                           <label>Telítettség (S):</label>
-                           <input type="range" min="0" max="100" value="63" class="slider" id="saturation-slider">
-                           <span class="value">63%</span>
-                       </div>
-                       <div class="slider-container">
-                           <label>Világosság (L):</label>
-                           <input type="range" min="0" max="100" value="49" class="slider" id="lightness-slider">
-                           <span class="value">49%</span>
-                       </div>
-                   </div>
-               </div>
-               <div class="control-group">
-                   <label>Átlátszóság</label>
-                   <div class="slider-container">
-                       <input type="range" min="0" max="100" value="100" class="slider" id="opacity-slider">
-                       <span class="value">100%</span>
-                   </div>
-               </div>
-           </div>
-           <div class="visualization">
-               <div class="color-preview-container">
-                   <div class="color-preview">
-                       <div class="color-box"></div>
-                       <div class="color-info">
-                           <div class="color-value hex"></div>
-                           <div class="color-value rgb"></div>
-                           <div class="color-value hsl"></div>
-                       </div>
-                   </div>
-                   <div class="gradient-preview">
-                       <div class="gradient-box"></div>
-                   </div>
-               </div>
-           </div>
-           <div class="code-preview">
-               <pre><code class="language-css" id="color-code">.element {
+                            <!-- HSL controls -->
+                            <div id="hsl-controls" class="color-input-group" style="display: none;">
+                                <div class="slider-container">
+                                    <label>Színezet (H):</label>
+                                    <input type="range" min="0" max="360" value="145" class="slider" id="hue-slider">
+                                    <span class="value">145°</span>
+                                </div>
+                                <div class="slider-container">
+                                    <label>Telítettség (S):</label>
+                                    <input type="range" min="0" max="100" value="63" class="slider"
+                                        id="saturation-slider">
+                                    <span class="value">63%</span>
+                                </div>
+                                <div class="slider-container">
+                                    <label>Világosság (L):</label>
+                                    <input type="range" min="0" max="100" value="49" class="slider"
+                                        id="lightness-slider">
+                                    <span class="value">49%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Átlátszóság</label>
+                            <div class="slider-container">
+                                <input type="range" min="0" max="100" value="100" class="slider" id="opacity-slider">
+                                <span class="value">100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visualization">
+                        <div class="color-preview-container">
+                            <div class="color-preview">
+                                <div class="color-box"></div>
+                                <div class="color-info">
+                                    <div class="color-value hex"></div>
+                                    <div class="color-value rgb"></div>
+                                    <div class="color-value hsl"></div>
+                                </div>
+                            </div>
+                            <div class="gradient-preview">
+                                <div class="gradient-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="color-code">.element {
    color: #2ecc71;
    background: linear-gradient(to right, #2ecc71, rgba(46, 204, 113, 0));
 }</code></pre>
-           </div>
-       </div>
-   </div>
+                    </div>
+                </div>
+            </div>
 
-   <style>
-       /* Színek szekció stílusai */
-       .colors-demo {
-           display: grid;
-           grid-template-columns: 300px 1fr;
-           gap: 2rem;
-       }
+            <style>
+                /* Színek szekció stílusai */
+                .colors-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
+                }
 
-       .color-input-group {
-           display: flex;
-           flex-direction: column;
-           gap: 1rem;
-       }
+                .color-input-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
 
-       .color-input {
-           background: var(--bg-primary);
-           border: 1px solid var(--border-color);
-           color: var(--text-primary);
-           padding: 0.5rem;
-           border-radius: 5px;
-           width: 100%;
-       }
+                .color-input {
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border-color);
+                    color: var(--text-primary);
+                    padding: 0.5rem;
+                    border-radius: 5px;
+                    width: 100%;
+                }
 
-       .slider-container {
-           display: flex;
-           align-items: center;
-           gap: 0.5rem;
-       }
+                .slider-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
 
-       .slider-container label {
-           min-width: 100px;
-           color: var(--text-secondary);
-       }
+                .slider-container label {
+                    min-width: 100px;
+                    color: var(--text-secondary);
+                }
 
-       .color-preview-container {
-           display: flex;
-           flex-direction: column;
-           gap: 1rem;
-           height: 100%;
-       }
+                .color-preview-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    height: 100%;
+                }
 
-       .color-preview {
-           display: flex;
-           gap: 1rem;
-           padding: 1rem;
-           background: var(--bg-primary);
-           border-radius: 10px;
-       }
+                .color-preview {
+                    display: flex;
+                    gap: 1rem;
+                    padding: 1rem;
+                    background: var(--bg-primary);
+                    border-radius: 10px;
+                }
 
-       .color-box {
-           width: 100px;
-           height: 100px;
-           border-radius: 5px;
-           background: var(--accent-primary);
-       }
+                .color-box {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 5px;
+                    background: var(--accent-primary);
+                }
 
-       .color-info {
-           display: flex;
-           flex-direction: column;
-           gap: 0.5rem;
-           justify-content: center;
-       }
+                .color-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    justify-content: center;
+                }
 
-       .color-value {
-           font-family: 'Fira Code', monospace;
-           color: var(--text-secondary);
-       }
+                .color-value {
+                    font-family: 'Fira Code', monospace;
+                    color: var(--text-secondary);
+                }
 
-       .gradient-preview {
-           flex: 1;
-           padding: 1rem;
-           background: var(--bg-primary);
-           border-radius: 10px;
-       }
+                .gradient-preview {
+                    flex: 1;
+                    padding: 1rem;
+                    background: var(--bg-primary);
+                    border-radius: 10px;
+                }
 
-       .gradient-box {
-           width: 100%;
-           height: 100%;
-           border-radius: 5px;
-           background: linear-gradient(to right, var(--accent-primary), transparent);
-       }
-   </style>
+                .gradient-box {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    background: linear-gradient(to right, var(--accent-primary), transparent);
+                }
+            </style>
 
-   <script>
-       // Színek szekció szkriptje
-       document.addEventListener('DOMContentLoaded', () => {
-           const colorFormat = document.getElementById('color-format');
-           const hexInput = document.getElementById('hex-input');
-           const redSlider = document.getElementById('red-slider');
-           const greenSlider = document.getElementById('green-slider');
-           const blueSlider = document.getElementById('blue-slider');
-           const hueSlider = document.getElementById('hue-slider');
-           const saturationSlider = document.getElementById('saturation-slider');
-           const lightnessSlider = document.getElementById('lightness-slider');
-           const opacitySlider = document.getElementById('opacity-slider');
+            <script>
+                // Színek szekció szkriptje
+                document.addEventListener('DOMContentLoaded', () => {
+                    const colorFormat = document.getElementById('color-format');
+                    const hexInput = document.getElementById('hex-input');
+                    const redSlider = document.getElementById('red-slider');
+                    const greenSlider = document.getElementById('green-slider');
+                    const blueSlider = document.getElementById('blue-slider');
+                    const hueSlider = document.getElementById('hue-slider');
+                    const saturationSlider = document.getElementById('saturation-slider');
+                    const lightnessSlider = document.getElementById('lightness-slider');
+                    const opacitySlider = document.getElementById('opacity-slider');
 
-           const colorBox = document.querySelector('.color-box');
-           const gradientBox = document.querySelector('.gradient-box');
-           const codePreview = document.getElementById('color-code');
+                    const colorBox = document.querySelector('.color-box');
+                    const gradientBox = document.querySelector('.gradient-box');
+                    const codePreview = document.getElementById('color-code');
 
-           const hexValue = document.querySelector('.color-value.hex');
-           const rgbValue = document.querySelector('.color-value.rgb');
-           const hslValue = document.querySelector('.color-value.hsl');
+                    const hexValue = document.querySelector('.color-value.hex');
+                    const rgbValue = document.querySelector('.color-value.rgb');
+                    const hslValue = document.querySelector('.color-value.hsl');
 
-           function hexToRgb(hex) {
-               const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-               return result ? {
-                   r: parseInt(result[1], 16),
-                   g: parseInt(result[2], 16),
-                   b: parseInt(result[3], 16)
-               } : null;
-           }
+                    function hexToRgb(hex) {
+                        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                        return result ? {
+                            r: parseInt(result[1], 16),
+                            g: parseInt(result[2], 16),
+                            b: parseInt(result[3], 16)
+                        } : null;
+                    }
 
-           function rgbToHex(r, g, b) {
-               return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
-           }
+                    function rgbToHex(r, g, b) {
+                        return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+                    }
 
-           function rgbToHsl(r, g, b) {
-               r /= 255;
-               g /= 255;
-               b /= 255;
+                    function rgbToHsl(r, g, b) {
+                        r /= 255;
+                        g /= 255;
+                        b /= 255;
 
-               const max = Math.max(r, g, b);
-               const min = Math.min(r, g, b);
-               let h, s, l = (max + min) / 2;
+                        const max = Math.max(r, g, b);
+                        const min = Math.min(r, g, b);
+                        let h, s, l = (max + min) / 2;
 
-               if (max === min) {
-                   h = s = 0;
-               } else {
-                   const d = max - min;
-                   s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                        if (max === min) {
+                            h = s = 0;
+                        } else {
+                            const d = max - min;
+                            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 
-                   switch (max) {
-                       case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                       case g: h = (b - r) / d + 2; break;
-                       case b: h = (r - g) / d + 4; break;
-                   }
+                            switch (max) {
+                                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                                case g: h = (b - r) / d + 2; break;
+                                case b: h = (r - g) / d + 4; break;
+                            }
 
-                   h /= 6;
-               }
+                            h /= 6;
+                        }
 
-               return {
-                   h: Math.round(h * 360),
-                   s: Math.round(s * 100),
-                   l: Math.round(l * 100)
-               };
-           }
+                        return {
+                            h: Math.round(h * 360),
+                            s: Math.round(s * 100),
+                            l: Math.round(l * 100)
+                        };
+                    }
 
-           function hslToRgb(h, s, l) {
-               h /= 360;
-               s /= 100;
-               l /= 100;
-               let r, g, b;
+                    function hslToRgb(h, s, l) {
+                        h /= 360;
+                        s /= 100;
+                        l /= 100;
+                        let r, g, b;
 
-               if (s === 0) {
-                   r = g = b = l;
-               } else {
-                   const hue2rgb = (p, q, t) => {
-                       if (t < 0) t += 1;
-                       if (t > 1) t -= 1;
-                       if (t < 1/6) return p + (q - p) * 6 * t;
-                       if (t < 1/2) return q;
-                       if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-                       return p;
-                   };
+                        if (s === 0) {
+                            r = g = b = l;
+                        } else {
+                            const hue2rgb = (p, q, t) => {
+                                if (t < 0) t += 1;
+                                if (t > 1) t -= 1;
+                                if (t < 1 / 6) return p + (q - p) * 6 * t;
+                                if (t < 1 / 2) return q;
+                                if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+                                return p;
+                            };
 
-                   const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-                   const p = 2 * l - q;
+                            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                            const p = 2 * l - q;
 
-                   r = hue2rgb(p, q, h + 1/3);
-                   g = hue2rgb(p, q, h);
-                   b = hue2rgb(p, q, h - 1/3);
-               }
+                            r = hue2rgb(p, q, h + 1 / 3);
+                            g = hue2rgb(p, q, h);
+                            b = hue2rgb(p, q, h - 1 / 3);
+                        }
 
-               return {
-                   r: Math.round(r * 255),
-                   g: Math.round(g * 255),
-                   b: Math.round(b * 255)
-               };
-           }
+                        return {
+                            r: Math.round(r * 255),
+                            g: Math.round(g * 255),
+                            b: Math.round(b * 255)
+                        };
+                    }
 
-           function updateColorDisplay() {
-               let rgb, hex, hsl;
-               const opacity = opacitySlider.value / 100;
+                    function updateColorDisplay() {
+                        let rgb, hex, hsl;
+                        const opacity = opacitySlider.value / 100;
 
-               switch(colorFormat.value) {
-                   case 'hex':
-                       hex = hexInput.value;
-                       rgb = hexToRgb(hex);
-                       hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
-                       break;
-                   case 'rgb':
-                       rgb = {
-                           r: parseInt(redSlider.value),
-                           g: parseInt(greenSlider.value),
-                           b: parseInt(blueSlider.value)
-                       };
-                       hex = rgbToHex(rgb.r, rgb.g, rgb.b);
-                       hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
-                       break;
-                   case 'hsl':
-                       hsl = {
-                           h: parseInt(hueSlider.value),
-                           s: parseInt(saturationSlider.value),
-                           l: parseInt(lightnessSlider.value)
-                       };
-                       rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
-                       hex = rgbToHex(rgb.r, rgb.g, rgb.b);
-                       break;
-               }
+                        switch (colorFormat.value) {
+                            case 'hex':
+                                hex = hexInput.value;
+                                rgb = hexToRgb(hex);
+                                hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                                break;
+                            case 'rgb':
+                                rgb = {
+                                    r: parseInt(redSlider.value),
+                                    g: parseInt(greenSlider.value),
+                                    b: parseInt(blueSlider.value)
+                                };
+                                hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+                                hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                                break;
+                            case 'hsl':
+                                hsl = {
+                                    h: parseInt(hueSlider.value),
+                                    s: parseInt(saturationSlider.value),
+                                    l: parseInt(lightnessSlider.value)
+                                };
+                                rgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+                                hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+                                break;
+                        }
 
-               // Színértékek megjelenítése
-               hexValue.textContent = `HEX: ${hex}`;
-               rgbValue.textContent = `RGB: rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
-               hslValue.textContent = `HSL: hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%, ${opacity})`;
+                        // Színértékek megjelenítése
+                        hexValue.textContent = `HEX: ${hex}`;
+                        rgbValue.textContent = `RGB: rgb(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+                        hslValue.textContent = `HSL: hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%, ${opacity})`;
 
-               // Színek alkalmazása
-               const rgbaColor = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
-               colorBox.style.backgroundColor = rgbaColor;
-               gradientBox.style.background = `linear-gradient(to right, ${rgbaColor}, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0))`;
+                        // Színek alkalmazása
+                        const rgbaColor = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})`;
+                        colorBox.style.backgroundColor = rgbaColor;
+                        gradientBox.style.background = `linear-gradient(to right, ${rgbaColor}, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0))`;
 
-               // Kód előnézet frissítése
-               const code = `.element {
+                        // Kód előnézet frissítése
+                        const code = `.element {
    color: ${rgbaColor};
    background: linear-gradient(to right, ${rgbaColor}, rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0));
 }`;
-               codePreview.textContent = code;
-               Prism.highlightElement(codePreview);
-           }
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
+                    }
 
-           // Formátum váltás kezelése
-           colorFormat.addEventListener('change', () => {
-               document.querySelectorAll('.color-input-group').forEach(group => {
-                   group.style.display = 'none';
-               });
-               document.getElementById(`${colorFormat.value}-controls`).style.display = 'block';
-               updateColorDisplay();
-           });
+                    // Formátum váltás kezelése
+                    colorFormat.addEventListener('change', () => {
+                        document.querySelectorAll('.color-input-group').forEach(group => {
+                            group.style.display = 'none';
+                        });
+                        document.getElementById(`${colorFormat.value}-controls`).style.display = 'block';
+                        updateColorDisplay();
+                    });
 
-           // Eseménykezelők hozzáadása
-           [hexInput, redSlider, greenSlider, blueSlider,
-            hueSlider, saturationSlider, lightnessSlider, opacitySlider].forEach(input => {
-               input.addEventListener('input', (e) => {
-                   if (e.target.classList.contains('slider')) {
-                       e.target.nextElementSibling.textContent =
-                           e.target.id === 'opacity-slider' ? `${e.target.value}%` :
-                           e.target.id === 'hue-slider' ? `${e.target.value}°` :
-                           e.target.id.includes('saturation') || e.target.id.includes('lightness') ?
-                           `${e.target.value}%` : e.target.value;
-                   }
-                   updateColorDisplay();
-               });
-           });
+                    // Eseménykezelők hozzáadása
+                    [hexInput, redSlider, greenSlider, blueSlider,
+                        hueSlider, saturationSlider, lightnessSlider, opacitySlider].forEach(input => {
+                            input.addEventListener('input', (e) => {
+                                if (e.target.classList.contains('slider')) {
+                                    e.target.nextElementSibling.textContent =
+                                        e.target.id === 'opacity-slider' ? `${e.target.value}%` :
+                                            e.target.id === 'hue-slider' ? `${e.target.value}°` :
+                                                e.target.id.includes('saturation') || e.target.id.includes('lightness') ?
+                                                    `${e.target.value}%` : e.target.value;
+                                }
+                                updateColorDisplay();
+                            });
+                        });
 
-           // Kezdeti állapot beállítása
-           updateColorDisplay();
-       });
-   </script>
-</section>
+                    // Kezdeti állapot beállítása
+                    updateColorDisplay();
+                });
+            </script>
+        </section>
 
-<!-- Grid Layout szekció -->
-<section id="grid">
-    <h2 class="section-title">
-        <i class="fas fa-th"></i>
-        CSS Grid Layout
-    </h2>
-    <div class="card">
-        <div class="grid-demo">
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Grid oszlopok</label>
-                    <div class="column-controls">
-                        <button class="btn btn-small" onclick="removeColumn()">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <span id="column-count">3</span>
-                        <button class="btn btn-small" onclick="addColumn()">
-                            <i class="fas fa-plus"></i>
-                        </button>
+        <!-- Grid Layout szekció -->
+        <section id="grid">
+            <h2 class="section-title">
+                <i class="fas fa-th"></i>
+                CSS Grid Layout
+            </h2>
+            <div class="card">
+                <div class="grid-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Grid oszlopok</label>
+                            <div class="column-controls">
+                                <button class="btn btn-small" onclick="removeColumn()">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span id="column-count">3</span>
+                                <button class="btn btn-small" onclick="addColumn()">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <select id="column-template">
+                                <option value="equal">Egyenlő oszlopok</option>
+                                <option value="custom">Egyéni méretezés</option>
+                                <option value="responsive">Reszponzív (auto-fit)</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Grid sorok</label>
+                            <div class="row-controls">
+                                <button class="btn btn-small" onclick="removeRow()">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span id="row-count">3</span>
+                                <button class="btn btn-small" onclick="addRow()">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Távolság (gap)</label>
+                            <div class="gap-control">
+                                <input type="range" min="0" max="30" value="10" class="slider" id="grid-gap">
+                                <span class="value">10px</span>
+                            </div>
+                        </div>
+
+                        <div id="custom-controls" class="control-group" style="display: none;">
+                            <label>Oszlop méretek (fr)</label>
+                            <div id="column-sizes" class="size-controls">
+                                <!-- Dinamikusan generált méret inputok -->
+                            </div>
+                        </div>
                     </div>
-                    <select id="column-template">
-                        <option value="equal">Egyenlő oszlopok</option>
-                        <option value="custom">Egyéni méretezés</option>
-                        <option value="responsive">Reszponzív (auto-fit)</option>
-                    </select>
-                </div>
 
-                <div class="control-group">
-                    <label>Grid sorok</label>
-                    <div class="row-controls">
-                        <button class="btn btn-small" onclick="removeRow()">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <span id="row-count">3</span>
-                        <button class="btn btn-small" onclick="addRow()">
-                            <i class="fas fa-plus"></i>
-                        </button>
+                    <div class="visualization">
+                        <div class="grid-container">
+                            <!-- Dinamikusan generált grid elemek -->
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group">
-                    <label>Távolság (gap)</label>
-                    <div class="gap-control">
-                        <input type="range" min="0" max="30" value="10" class="slider" id="grid-gap">
-                        <span class="value">10px</span>
-                    </div>
-                </div>
-
-                <div id="custom-controls" class="control-group" style="display: none;">
-                    <label>Oszlop méretek (fr)</label>
-                    <div id="column-sizes" class="size-controls">
-                        <!-- Dinamikusan generált méret inputok -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="visualization">
-                <div class="grid-container">
-                    <!-- Dinamikusan generált grid elemek -->
-                </div>
-            </div>
-
-            <div class="code-preview">
-                <pre><code class="language-css" id="grid-code">.grid-container {
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="grid-code">.grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 10px;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <style>
-        /* Grid szekció stílusai */
-        .grid-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
-
-        .column-controls,
-        .row-controls {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 0.5rem 0;
-        }
-
-        .btn-small {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .gap-control {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .size-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .size-control {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .size-control input {
-            width: 60px;
-            padding: 0.25rem;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            border-radius: 3px;
-        }
-
-        .grid-container {
-            background: var(--bg-primary);
-            padding: 1rem;
-            border-radius: 10px;
-            min-height: 400px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .grid-item {
-            background: var(--accent-primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .grid-item:hover {
-            background: var(--accent-secondary);
-            transform: scale(1.02);
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const gridContainer = document.querySelector('.grid-container');
-            const columnTemplate = document.getElementById('column-template');
-            const gridGap = document.getElementById('grid-gap');
-            const columnCount = document.getElementById('column-count');
-            const rowCount = document.getElementById('row-count');
-            const customControls = document.getElementById('custom-controls');
-            const columnSizes = document.getElementById('column-sizes');
-            const codePreview = document.getElementById('grid-code');
-
-            let columns = 3;
-            let rows = 3;
-
-            function createGridItems() {
-                gridContainer.innerHTML = '';
-                const total = columns * rows;
-                for (let i = 1; i <= total; i++) {
-                    const item = document.createElement('div');
-                    item.className = 'grid-item';
-                    item.textContent = i;
-                    gridContainer.appendChild(item);
-
-                    // Animáció az új elemekhez
-                    anime({
-                        targets: item,
-                        scale: [0, 1],
-                        opacity: [0, 1],
-                        duration: 400,
-                        easing: 'easeOutElastic(1, .8)',
-                        delay: i * 50
-                    });
-                }
-            }
-
-            function updateGrid() {
-                const gap = gridGap.value;
-                let columnsTemplate;
-
-                switch(columnTemplate.value) {
-                    case 'equal':
-                        columnsTemplate = `repeat(${columns}, 1fr)`;
-                        customControls.style.display = 'none';
-                        break;
-                    case 'custom':
-                        const sizes = Array.from(columnSizes.querySelectorAll('input'))
-                            .map(input => `${input.value}fr`);
-                        columnsTemplate = sizes.join(' ');
-                        customControls.style.display = 'block';
-                        break;
-                    case 'responsive':
-                        columnsTemplate = `repeat(auto-fit, minmax(100px, 1fr))`;
-                        customControls.style.display = 'none';
-                        break;
+            <style>
+                /* Grid szekció stílusai */
+                .grid-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
                 }
 
-                gridContainer.style.gridTemplateColumns = columnsTemplate;
-                gridContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-                gridContainer.style.gap = `${gap}px`;
+                .column-controls,
+                .row-controls {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin: 0.5rem 0;
+                }
 
-                const code = `.grid-container {
+                .btn-small {
+                    padding: 0.25rem 0.5rem;
+                    font-size: 0.9rem;
+                }
+
+                .gap-control {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                .size-controls {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+
+                .size-control {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+
+                .size-control input {
+                    width: 60px;
+                    padding: 0.25rem;
+                    background: var(--bg-primary);
+                    border: 1px solid var(--border-color);
+                    color: var(--text-primary);
+                    border-radius: 3px;
+                }
+
+                .grid-container {
+                    background: var(--bg-primary);
+                    padding: 1rem;
+                    border-radius: 10px;
+                    min-height: 400px;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    gap: 10px;
+                }
+
+                .grid-item {
+                    background: var(--accent-primary);
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                }
+
+                .grid-item:hover {
+                    background: var(--accent-secondary);
+                    transform: scale(1.02);
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const gridContainer = document.querySelector('.grid-container');
+                    const columnTemplate = document.getElementById('column-template');
+                    const gridGap = document.getElementById('grid-gap');
+                    const columnCount = document.getElementById('column-count');
+                    const rowCount = document.getElementById('row-count');
+                    const customControls = document.getElementById('custom-controls');
+                    const columnSizes = document.getElementById('column-sizes');
+                    const codePreview = document.getElementById('grid-code');
+
+                    let columns = 3;
+                    let rows = 3;
+
+                    function createGridItems() {
+                        gridContainer.innerHTML = '';
+                        const total = columns * rows;
+                        for (let i = 1; i <= total; i++) {
+                            const item = document.createElement('div');
+                            item.className = 'grid-item';
+                            item.textContent = i;
+                            gridContainer.appendChild(item);
+
+                            // Animáció az új elemekhez
+                            anime({
+                                targets: item,
+                                scale: [0, 1],
+                                opacity: [0, 1],
+                                duration: 400,
+                                easing: 'easeOutElastic(1, .8)',
+                                delay: i * 50
+                            });
+                        }
+                    }
+
+                    function updateGrid() {
+                        const gap = gridGap.value;
+                        let columnsTemplate;
+
+                        switch (columnTemplate.value) {
+                            case 'equal':
+                                columnsTemplate = `repeat(${columns}, 1fr)`;
+                                customControls.style.display = 'none';
+                                break;
+                            case 'custom':
+                                const sizes = Array.from(columnSizes.querySelectorAll('input'))
+                                    .map(input => `${input.value}fr`);
+                                columnsTemplate = sizes.join(' ');
+                                customControls.style.display = 'block';
+                                break;
+                            case 'responsive':
+                                columnsTemplate = `repeat(auto-fit, minmax(100px, 1fr))`;
+                                customControls.style.display = 'none';
+                                break;
+                        }
+
+                        gridContainer.style.gridTemplateColumns = columnsTemplate;
+                        gridContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+                        gridContainer.style.gap = `${gap}px`;
+
+                        const code = `.grid-container {
     display: grid;
     grid-template-columns: ${columnsTemplate};
     grid-template-rows: repeat(${rows}, 1fr);
     gap: ${gap}px;
 }`;
-                codePreview.textContent = code;
-                Prism.highlightElement(codePreview);
-            }
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
+                    }
 
-            function createCustomControls() {
-                columnSizes.innerHTML = '';
-                for (let i = 0; i < columns; i++) {
-                    const control = document.createElement('div');
-                    control.className = 'size-control';
-                    control.innerHTML = `
+                    function createCustomControls() {
+                        columnSizes.innerHTML = '';
+                        for (let i = 0; i < columns; i++) {
+                            const control = document.createElement('div');
+                            control.className = 'size-control';
+                            control.innerHTML = `
                         <label>Oszlop ${i + 1}:</label>
                         <input type="number" min="1" max="12" value="1" class="size-input">
                         <span>fr</span>
                     `;
-                    columnSizes.appendChild(control);
+                            columnSizes.appendChild(control);
 
-                    control.querySelector('input').addEventListener('input', updateGrid);
-                }
-            }
-
-            window.addColumn = () => {
-                if (columns < 12) {
-                    columns++;
-                    columnCount.textContent = columns;
-                    if (columnTemplate.value === 'custom') {
-                        createCustomControls();
+                            control.querySelector('input').addEventListener('input', updateGrid);
+                        }
                     }
+
+                    window.addColumn = () => {
+                        if (columns < 12) {
+                            columns++;
+                            columnCount.textContent = columns;
+                            if (columnTemplate.value === 'custom') {
+                                createCustomControls();
+                            }
+                            createGridItems();
+                            updateGrid();
+                        }
+                    };
+
+                    window.removeColumn = () => {
+                        if (columns > 1) {
+                            columns--;
+                            columnCount.textContent = columns;
+                            if (columnTemplate.value === 'custom') {
+                                createCustomControls();
+                            }
+                            createGridItems();
+                            updateGrid();
+                        }
+                    };
+
+                    window.addRow = () => {
+                        if (rows < 12) {
+                            rows++;
+                            rowCount.textContent = rows;
+                            createGridItems();
+                            updateGrid();
+                        }
+                    };
+
+                    window.removeRow = () => {
+                        if (rows > 1) {
+                            rows--;
+                            rowCount.textContent = rows;
+                            createGridItems();
+                            updateGrid();
+                        }
+                    };
+
+                    // Eseménykezelők
+                    columnTemplate.addEventListener('change', () => {
+                        if (columnTemplate.value === 'custom') {
+                            createCustomControls();
+                        }
+                        updateGrid();
+                    });
+
+                    gridGap.addEventListener('input', (e) => {
+                        e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                        updateGrid();
+                    });
+
+                    // Kezdeti állapot
                     createGridItems();
                     updateGrid();
-                }
-            };
-
-            window.removeColumn = () => {
-                if (columns > 1) {
-                    columns--;
-                    columnCount.textContent = columns;
-                    if (columnTemplate.value === 'custom') {
-                        createCustomControls();
-                    }
-                    createGridItems();
-                    updateGrid();
-                }
-            };
-
-            window.addRow = () => {
-                if (rows < 12) {
-                    rows++;
-                    rowCount.textContent = rows;
-                    createGridItems();
-                    updateGrid();
-                }
-            };
-
-            window.removeRow = () => {
-                if (rows > 1) {
-                    rows--;
-                    rowCount.textContent = rows;
-                    createGridItems();
-                    updateGrid();
-                }
-            };
-
-            // Eseménykezelők
-            columnTemplate.addEventListener('change', () => {
-                if (columnTemplate.value === 'custom') {
-                    createCustomControls();
-                }
-                updateGrid();
-            });
-
-            gridGap.addEventListener('input', (e) => {
-                e.target.nextElementSibling.textContent = `${e.target.value}px`;
-                updateGrid();
-            });
-
-            // Kezdeti állapot
-            createGridItems();
-            updateGrid();
-        });
-    </script>
-</section>
+                });
+            </script>
+        </section>
 
 
-<!-- Táblázat formázás szekció -->
-<section id="tables">
-    <h2 class="section-title">
-        <i class="fas fa-table"></i>
-        Táblázatok Formázása
-    </h2>
-    <div class="card">
-        <div class="table-demo">
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Táblázat szélek</label>
-                    <select id="border-collapse">
-                        <option value="separate">Border Separate</option>
-                        <option value="collapse">Border Collapse</option>
-                    </select>
-                    <div class="slider-group">
-                        <label>Szegély vastagság:</label>
-                        <input type="range" min="0" max="5" value="1" class="slider" id="border-width">
-                        <span class="value">1px</span>
+        <!-- Táblázat formázás szekció -->
+        <section id="tables">
+            <h2 class="section-title">
+                <i class="fas fa-table"></i>
+                Táblázatok Formázása
+            </h2>
+            <div class="card">
+                <div class="table-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Táblázat szélek</label>
+                            <select id="border-collapse">
+                                <option value="separate">Border Separate</option>
+                                <option value="collapse">Border Collapse</option>
+                            </select>
+                            <div class="slider-group">
+                                <label>Szegély vastagság:</label>
+                                <input type="range" min="0" max="5" value="1" class="slider" id="border-width">
+                                <span class="value">1px</span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Cellák közti távolság</label>
+                            <input type="range" min="0" max="10" value="2" class="slider" id="cell-spacing">
+                            <span class="value">2px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Cellák belső margója</label>
+                            <input type="range" min="0" max="20" value="8" class="slider" id="cell-padding">
+                            <span class="value">8px</span>
+                        </div>
+
+                        <div class="control-group">
+                            <label>Sorok háttere</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="stripe-rows">
+                                    Csíkozott sorok
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="hover-effect">
+                                    Hover effekt
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group">
-                    <label>Cellák közti távolság</label>
-                    <input type="range" min="0" max="10" value="2" class="slider" id="cell-spacing">
-                    <span class="value">2px</span>
-                </div>
-
-                <div class="control-group">
-                    <label>Cellák belső margója</label>
-                    <input type="range" min="0" max="20" value="8" class="slider" id="cell-padding">
-                    <span class="value">8px</span>
-                </div>
-
-                <div class="control-group">
-                    <label>Sorok háttere</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox">
-                            <input type="checkbox" id="stripe-rows">
-                            Csíkozott sorok
-                        </label>
-                        <label class="checkbox">
-                            <input type="checkbox" id="hover-effect">
-                            Hover effekt
-                        </label>
+                    <div class="visualization">
+                        <table class="demo-table">
+                            <thead>
+                                <tr>
+                                    <th>Fejléc 1</th>
+                                    <th>Fejléc 2</th>
+                                    <th>Fejléc 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Adat 1</td>
+                                    <td>Adat 2</td>
+                                    <td>Adat 3</td>
+                                </tr>
+                                <tr>
+                                    <td>Adat 4</td>
+                                    <td>Adat 5</td>
+                                    <td>Adat 6</td>
+                                </tr>
+                                <tr>
+                                    <td>Adat 7</td>
+                                    <td>Adat 8</td>
+                                    <td>Adat 9</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            </div>
 
-            <div class="visualization">
-                <table class="demo-table">
-                    <thead>
-                        <tr>
-                            <th>Fejléc 1</th>
-                            <th>Fejléc 2</th>
-                            <th>Fejléc 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Adat 1</td>
-                            <td>Adat 2</td>
-                            <td>Adat 3</td>
-                        </tr>
-                        <tr>
-                            <td>Adat 4</td>
-                            <td>Adat 5</td>
-                            <td>Adat 6</td>
-                        </tr>
-                        <tr>
-                            <td>Adat 7</td>
-                            <td>Adat 8</td>
-                            <td>Adat 9</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="code-preview">
-                <pre><code class="language-css" id="table-code">.table {
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="table-code">.table {
     border-collapse: separate;
     border-spacing: 2px;
     width: 100%;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <style>
-        /* Táblázat szekció stílusai */
-        .table-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .checkbox {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-
-        .demo-table {
-            width: 100%;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-collapse: separate;
-            border-spacing: 2px;
-        }
-
-        .demo-table th,
-        .demo-table td {
-            padding: 8px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .demo-table th {
-            background: var(--accent-primary);
-            color: white;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        .demo-table-striped tr:nth-child(even) {
-            background: var(--bg-secondary);
-        }
-
-        .demo-table-hover tr:hover {
-            background: var(--highlight);
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const table = document.querySelector('.demo-table');
-            const borderCollapse = document.getElementById('border-collapse');
-            const borderWidth = document.getElementById('border-width');
-            const cellSpacing = document.getElementById('cell-spacing');
-            const cellPadding = document.getElementById('cell-padding');
-            const stripeRows = document.getElementById('stripe-rows');
-            const hoverEffect = document.getElementById('hover-effect');
-            const codePreview = document.getElementById('table-code');
-
-            function updateTable() {
-                // Border beállítások
-                table.style.borderCollapse = borderCollapse.value;
-                if (borderCollapse.value === 'separate') {
-                    table.style.borderSpacing = `${cellSpacing.value}px`;
-                } else {
-                    table.style.borderSpacing = '0';
+            <style>
+                /* Táblázat szekció stílusai */
+                .table-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
                 }
 
-                // Szegély vastagság
-                const borderSize = borderWidth.value;
-                table.style.borderWidth = `${borderSize}px`; // Hozzáadjuk a táblázat szegélyét is
-                const cells = table.querySelectorAll('th, td');
-                cells.forEach(cell => {
-                    cell.style.borderWidth = `${borderSize}px`;
-                });
+                .checkbox-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
 
-                // Csíkozás
-                table.classList.toggle('demo-table-striped', stripeRows.checked);
+                .checkbox {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    cursor: pointer;
+                }
 
-                // Hover effekt
-                table.classList.toggle('demo-table-hover', hoverEffect.checked);
+                .demo-table {
+                    width: 100%;
+                    background: var(--bg-primary);
+                    color: var(--text-primary);
+                    border: 1px solid var(--border-color);
+                    border-collapse: separate;
+                    border-spacing: 2px;
+                }
 
-                // Kód előnézet frissítése
-                let code = `.table {
+                .demo-table th,
+                .demo-table td {
+                    padding: 8px;
+                    transition: all 0.3s ease;
+                    border: 1px solid var(--border-color);
+                }
+
+                .demo-table th {
+                    background: var(--accent-primary);
+                    color: white;
+                    font-weight: bold;
+                    text-align: left;
+                }
+
+                .demo-table-striped tr:nth-child(even) {
+                    background: var(--bg-secondary);
+                }
+
+                .demo-table-hover tr:hover {
+                    background: var(--highlight);
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const table = document.querySelector('.demo-table');
+                    const borderCollapse = document.getElementById('border-collapse');
+                    const borderWidth = document.getElementById('border-width');
+                    const cellSpacing = document.getElementById('cell-spacing');
+                    const cellPadding = document.getElementById('cell-padding');
+                    const stripeRows = document.getElementById('stripe-rows');
+                    const hoverEffect = document.getElementById('hover-effect');
+                    const codePreview = document.getElementById('table-code');
+
+                    function updateTable() {
+                        // Border beállítások
+                        table.style.borderCollapse = borderCollapse.value;
+                        if (borderCollapse.value === 'separate') {
+                            table.style.borderSpacing = `${cellSpacing.value}px`;
+                        } else {
+                            table.style.borderSpacing = '0';
+                        }
+
+                        // Szegély vastagság
+                        const borderSize = borderWidth.value;
+                        table.style.borderWidth = `${borderSize}px`; // Hozzáadjuk a táblázat szegélyét is
+                        const cells = table.querySelectorAll('th, td');
+                        cells.forEach(cell => {
+                            cell.style.borderWidth = `${borderSize}px`;
+                        });
+
+                        // Csíkozás
+                        table.classList.toggle('demo-table-striped', stripeRows.checked);
+
+                        // Hover effekt
+                        table.classList.toggle('demo-table-hover', hoverEffect.checked);
+
+                        // Kód előnézet frissítése
+                        let code = `.table {
     border-collapse: ${borderCollapse.value};
     ${borderCollapse.value === 'separate' ? `border-spacing: ${cellSpacing.value}px;` : ''}
     width: 100%;
@@ -1686,207 +1692,207 @@ document.addEventListener('DOMContentLoaded', () => {
     padding: ${cellPadding.value}px;
 }`;
 
-                if (stripeRows.checked) {
-                    code += `\n\n.table tr:nth-child(even) {
+                        if (stripeRows.checked) {
+                            code += `\n\n.table tr:nth-child(even) {
     background: var(--bg-secondary);
 }`;
-                }
+                        }
 
-                if (hoverEffect.checked) {
-                    code += `\n\n.table tr:hover {
+                        if (hoverEffect.checked) {
+                            code += `\n\n.table tr:hover {
     background: var(--highlight);
 }`;
-                }
+                        }
 
-                codePreview.textContent = code;
-                Prism.highlightElement(codePreview);
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
 
-                // Animáció a változtatásokhoz
-                anime({
-                    targets: '.demo-table',
-                    scale: [0.98, 1],
-                    duration: 300,
-                    easing: 'easeOutElastic(1, .8)'
+                        // Animáció a változtatásokhoz
+                        anime({
+                            targets: '.demo-table',
+                            scale: [0.98, 1],
+                            duration: 300,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                    }
+
+                    // Eseménykezelők
+                    [borderCollapse, borderWidth, cellSpacing, cellPadding, stripeRows, hoverEffect]
+                        .forEach(control => {
+                            control.addEventListener('input', updateTable);
+                            control.addEventListener('change', updateTable);
+                        });
+
+                    // Értékek kiírása a csúszkáknál
+                    [borderWidth, cellSpacing, cellPadding].forEach(slider => {
+                        slider.addEventListener('input', (e) => {
+                            e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                        });
+                    });
+
+                    // Kezdeti állapot
+                    updateTable();
                 });
-            }
+            </script>
+        </section>
 
-            // Eseménykezelők
-            [borderCollapse, borderWidth, cellSpacing, cellPadding, stripeRows, hoverEffect]
-                .forEach(control => {
-                    control.addEventListener('input', updateTable);
-                    control.addEventListener('change', updateTable);
-                });
+        <!-- Lista formázás szekció -->
+        <section id="lists">
+            <h2 class="section-title">
+                <i class="fas fa-list"></i>
+                Lista Stílusok
+            </h2>
+            <div class="card">
+                <div class="list-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Lista típusa</label>
+                            <select id="list-type">
+                                <option value="disc">Teli kör (disc)</option>
+                                <option value="circle">Üres kör (circle)</option>
+                                <option value="square">Négyzet (square)</option>
+                                <option value="decimal">Decimális (1, 2, 3)</option>
+                                <option value="decimal-leading-zero">Nullázott (01, 02)</option>
+                                <option value="lower-alpha">Kisbetűk (a, b, c)</option>
+                                <option value="upper-alpha">Nagybetűk (A, B, C)</option>
+                                <option value="lower-roman">Római kisbetű (i, ii)</option>
+                                <option value="upper-roman">Római nagybetű (I, II)</option>
+                                <option value="none">Nincs jelölő</option>
+                            </select>
+                        </div>
 
-            // Értékek kiírása a csúszkáknál
-            [borderWidth, cellSpacing, cellPadding].forEach(slider => {
-                slider.addEventListener('input', (e) => {
-                    e.target.nextElementSibling.textContent = `${e.target.value}px`;
-                });
-            });
+                        <div class="control-group">
+                            <label>Jelölő pozíciója</label>
+                            <select id="list-position">
+                                <option value="inside">Belül (inside)</option>
+                                <option value="outside">Kívül (outside)</option>
+                            </select>
+                        </div>
 
-            // Kezdeti állapot
-            updateTable();
-        });
-    </script>
-</section>
+                        <div class="control-group">
+                            <label>Behúzás mértéke</label>
+                            <div class="slider-group">
+                                <input type="range" min="0" max="50" value="20" class="slider" id="list-indent">
+                                <span class="value">20px</span>
+                            </div>
+                        </div>
 
-<!-- Lista formázás szekció -->
-<section id="lists">
-    <h2 class="section-title">
-        <i class="fas fa-list"></i>
-        Lista Stílusok
-    </h2>
-    <div class="card">
-        <div class="list-demo">
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Lista típusa</label>
-                    <select id="list-type">
-                        <option value="disc">Teli kör (disc)</option>
-                        <option value="circle">Üres kör (circle)</option>
-                        <option value="square">Négyzet (square)</option>
-                        <option value="decimal">Decimális (1, 2, 3)</option>
-                        <option value="decimal-leading-zero">Nullázott (01, 02)</option>
-                        <option value="lower-alpha">Kisbetűk (a, b, c)</option>
-                        <option value="upper-alpha">Nagybetűk (A, B, C)</option>
-                        <option value="lower-roman">Római kisbetű (i, ii)</option>
-                        <option value="upper-roman">Római nagybetű (I, II)</option>
-                        <option value="none">Nincs jelölő</option>
-                    </select>
-                </div>
+                        <div class="control-group">
+                            <label>Elemek közti távolság</label>
+                            <div class="slider-group">
+                                <input type="range" min="0" max="30" value="10" class="slider" id="list-spacing">
+                                <span class="value">10px</span>
+                            </div>
+                        </div>
 
-                <div class="control-group">
-                    <label>Jelölő pozíciója</label>
-                    <select id="list-position">
-                        <option value="inside">Belül (inside)</option>
-                        <option value="outside">Kívül (outside)</option>
-                    </select>
-                </div>
-
-                <div class="control-group">
-                    <label>Behúzás mértéke</label>
-                    <div class="slider-group">
-                        <input type="range" min="0" max="50" value="20" class="slider" id="list-indent">
-                        <span class="value">20px</span>
+                        <div class="control-group">
+                            <button class="btn" onclick="toggleNested()">
+                                <i class="fas fa-layer-group"></i>
+                                Beágyazott lista ki/be
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <div class="control-group">
-                    <label>Elemek közti távolság</label>
-                    <div class="slider-group">
-                        <input type="range" min="0" max="30" value="10" class="slider" id="list-spacing">
-                        <span class="value">10px</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <button class="btn" onclick="toggleNested()">
-                        <i class="fas fa-layer-group"></i>
-                        Beágyazott lista ki/be
-                    </button>
-                </div>
-            </div>
-
-            <div class="visualization">
-                <div class="list-container">
-                    <ul id="demo-list">
-                        <li>Első listaelem
-                            <ul class="nested-list" style="display: none;">
-                                <li>Beágyazott elem 1</li>
-                                <li>Beágyazott elem 2</li>
+                    <div class="visualization">
+                        <div class="list-container">
+                            <ul id="demo-list">
+                                <li>Első listaelem
+                                    <ul class="nested-list" style="display: none;">
+                                        <li>Beágyazott elem 1</li>
+                                        <li>Beágyazott elem 2</li>
+                                    </ul>
+                                </li>
+                                <li>Második listaelem</li>
+                                <li>Harmadik listaelem</li>
+                                <li>Negyedik listaelem</li>
+                                <li>Ötödik listaelem</li>
                             </ul>
-                        </li>
-                        <li>Második listaelem</li>
-                        <li>Harmadik listaelem</li>
-                        <li>Negyedik listaelem</li>
-                        <li>Ötödik listaelem</li>
-                    </ul>
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <div class="code-preview">
-                <pre><code class="language-css" id="list-code">ul {
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="list-code">ul {
     list-style-type: disc;
     list-style-position: outside;
     padding-left: 20px;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <style>
-        /* Lista szekció stílusai */
-        .list-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
-
-        .list-container {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 10px;
-            min-height: 300px;
-        }
-
-        #demo-list {
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        #demo-list li {
-            transition: all 0.3s ease;
-        }
-
-        .nested-list {
-            margin-top: 10px;
-            margin-left: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .slider-group {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .slider-group .value {
-            min-width: 50px;
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const demoList = document.getElementById('demo-list');
-            const listType = document.getElementById('list-type');
-            const listPosition = document.getElementById('list-position');
-            const listIndent = document.getElementById('list-indent');
-            const listSpacing = document.getElementById('list-spacing');
-            const codePreview = document.getElementById('list-code');
-            const nestedList = document.querySelector('.nested-list');
-
-            function updateList() {
-                // Lista típus és pozíció
-                demoList.style.listStyleType = listType.value;
-                demoList.style.listStylePosition = listPosition.value;
-
-                // Behúzás
-                demoList.style.paddingLeft = `${listIndent.value}px`;
-
-                // Elemek közti távolság
-                const items = demoList.querySelectorAll('li');
-                items.forEach(item => {
-                    item.style.marginBottom = `${listSpacing.value}px`;
-                });
-
-                // Beágyazott lista ugyanazokat a stílusokat kapja
-                if (nestedList) {
-                    nestedList.style.listStyleType = listType.value;
-                    nestedList.style.listStylePosition = listPosition.value;
+            <style>
+                /* Lista szekció stílusai */
+                .list-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
                 }
 
-                // Kód előnézet frissítése
-                const code = `ul {
+                .list-container {
+                    background: var(--bg-primary);
+                    padding: 2rem;
+                    border-radius: 10px;
+                    min-height: 300px;
+                }
+
+                #demo-list {
+                    color: var(--text-primary);
+                    transition: all 0.3s ease;
+                }
+
+                #demo-list li {
+                    transition: all 0.3s ease;
+                }
+
+                .nested-list {
+                    margin-top: 10px;
+                    margin-left: 20px;
+                    transition: all 0.3s ease;
+                }
+
+                .slider-group {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                .slider-group .value {
+                    min-width: 50px;
+                }
+            </style>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const demoList = document.getElementById('demo-list');
+                    const listType = document.getElementById('list-type');
+                    const listPosition = document.getElementById('list-position');
+                    const listIndent = document.getElementById('list-indent');
+                    const listSpacing = document.getElementById('list-spacing');
+                    const codePreview = document.getElementById('list-code');
+                    const nestedList = document.querySelector('.nested-list');
+
+                    function updateList() {
+                        // Lista típus és pozíció
+                        demoList.style.listStyleType = listType.value;
+                        demoList.style.listStylePosition = listPosition.value;
+
+                        // Behúzás
+                        demoList.style.paddingLeft = `${listIndent.value}px`;
+
+                        // Elemek közti távolság
+                        const items = demoList.querySelectorAll('li');
+                        items.forEach(item => {
+                            item.style.marginBottom = `${listSpacing.value}px`;
+                        });
+
+                        // Beágyazott lista ugyanazokat a stílusokat kapja
+                        if (nestedList) {
+                            nestedList.style.listStyleType = listType.value;
+                            nestedList.style.listStylePosition = listPosition.value;
+                        }
+
+                        // Kód előnézet frissítése
+                        const code = `ul {
     list-style-type: ${listType.value};
     list-style-position: ${listPosition.value};
     padding-left: ${listIndent.value}px;
@@ -1896,257 +1902,259 @@ li {
     margin-bottom: ${listSpacing.value}px;
 }`;
 
-                codePreview.textContent = code;
-                Prism.highlightElement(codePreview);
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
 
-                // Animáció a változásokhoz
-                anime({
-                    targets: '#demo-list',
-                    scale: [0.98, 1],
-                    duration: 300,
-                    easing: 'easeOutElastic(1, .8)'
-                });
-            }
-
-            window.toggleNested = () => {
-                const nestedList = document.querySelector('.nested-list');
-                if (nestedList) {
-                    const isVisible = nestedList.style.display !== 'none';
-                    if (isVisible) {
+                        // Animáció a változásokhoz
                         anime({
-                            targets: nestedList,
-                            height: [nestedList.scrollHeight, 0],
-                            opacity: [1, 0],
+                            targets: '#demo-list',
+                            scale: [0.98, 1],
                             duration: 300,
-                            easing: 'easeOutQuad',
-                            complete: () => {
-                                nestedList.style.display = 'none';
-                            }
-                        });
-                    } else {
-                        nestedList.style.display = 'block';
-                        nestedList.style.height = '0px';
-                        anime({
-                            targets: nestedList,
-                            height: [0, nestedList.scrollHeight],
-                            opacity: [0, 1],
-                            duration: 300,
-                            easing: 'easeOutQuad'
+                            easing: 'easeOutElastic(1, .8)'
                         });
                     }
-                }
-            };
 
-            // Eseménykezelők
-            [listType, listPosition].forEach(select => {
-                select.addEventListener('change', updateList);
-            });
+                    window.toggleNested = () => {
+                        const nestedList = document.querySelector('.nested-list');
+                        if (nestedList) {
+                            const isVisible = nestedList.style.display !== 'none';
+                            if (isVisible) {
+                                anime({
+                                    targets: nestedList,
+                                    height: [nestedList.scrollHeight, 0],
+                                    opacity: [1, 0],
+                                    duration: 300,
+                                    easing: 'easeOutQuad',
+                                    complete: () => {
+                                        nestedList.style.display = 'none';
+                                    }
+                                });
+                            } else {
+                                nestedList.style.display = 'block';
+                                nestedList.style.height = '0px';
+                                anime({
+                                    targets: nestedList,
+                                    height: [0, nestedList.scrollHeight],
+                                    opacity: [0, 1],
+                                    duration: 300,
+                                    easing: 'easeOutQuad'
+                                });
+                            }
+                        }
+                    };
 
-            [listIndent, listSpacing].forEach(slider => {
-                slider.addEventListener('input', (e) => {
-                    e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                    // Eseménykezelők
+                    [listType, listPosition].forEach(select => {
+                        select.addEventListener('change', updateList);
+                    });
+
+                    [listIndent, listSpacing].forEach(slider => {
+                        slider.addEventListener('input', (e) => {
+                            e.target.nextElementSibling.textContent = `${e.target.value}px`;
+                            updateList();
+                        });
+                    });
+
+                    // Kezdeti állapot
                     updateList();
                 });
-            });
+            </script>
+        </section>
 
-            // Kezdeti állapot
-            updateList();
-        });
-    </script>
-</section>
+        <!-- Szövegformázás szekció -->
+        <section id="typography">
+            <h2 class="section-title">
+                <i class="fas fa-font"></i>
+                Szövegformázás
+            </h2>
+            <div class="card">
+                <div class="typography-demo">
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Betűtípus család</label>
+                            <select id="font-family">
+                                <option value="'Arial', sans-serif">Arial (sans-serif)</option>
+                                <option value="'Times New Roman', serif">Times New Roman (serif)</option>
+                                <option value="'Courier New', monospace">Courier New (monospace)</option>
+                                <option value="'Georgia', serif">Georgia (serif)</option>
+                                <option value="'Verdana', sans-serif">Verdana (sans-serif)</option>
+                            </select>
+                        </div>
 
-<!-- Szövegformázás szekció -->
-<section id="typography">
-   <h2 class="section-title">
-       <i class="fas fa-font"></i>
-       Szövegformázás
-   </h2>
-   <div class="card">
-       <div class="typography-demo">
-           <div class="control-panel">
-               <div class="control-group">
-                   <label>Betűtípus család</label>
-                   <select id="font-family">
-                       <option value="'Arial', sans-serif">Arial (sans-serif)</option>
-                       <option value="'Times New Roman', serif">Times New Roman (serif)</option>
-                       <option value="'Courier New', monospace">Courier New (monospace)</option>
-                       <option value="'Georgia', serif">Georgia (serif)</option>
-                       <option value="'Verdana', sans-serif">Verdana (sans-serif)</option>
-                   </select>
-               </div>
+                        <div class="control-group">
+                            <label>Betűméret</label>
+                            <div class="slider-group">
+                                <input type="range" min="12" max="48" value="16" class="slider" id="font-size">
+                                <span class="value">16px</span>
+                            </div>
+                        </div>
 
-               <div class="control-group">
-                   <label>Betűméret</label>
-                   <div class="slider-group">
-                       <input type="range" min="12" max="48" value="16" class="slider" id="font-size">
-                       <span class="value">16px</span>
-                   </div>
-               </div>
+                        <div class="control-group">
+                            <label>Betűvastagság</label>
+                            <select id="font-weight">
+                                <option value="normal">Normal (400)</option>
+                                <option value="bold">Bold (700)</option>
+                                <option value="lighter">Light (300)</option>
+                                <option value="bolder">Bolder (900)</option>
+                            </select>
+                        </div>
 
-               <div class="control-group">
-                   <label>Betűvastagság</label>
-                   <select id="font-weight">
-                       <option value="normal">Normal (400)</option>
-                       <option value="bold">Bold (700)</option>
-                       <option value="lighter">Light (300)</option>
-                       <option value="bolder">Bolder (900)</option>
-                   </select>
-               </div>
+                        <div class="control-group">
+                            <label>Betűstílus</label>
+                            <select id="font-style">
+                                <option value="normal">Normal</option>
+                                <option value="italic">Italic</option>
+                                <option value="oblique">Oblique</option>
+                            </select>
+                        </div>
 
-               <div class="control-group">
-                   <label>Betűstílus</label>
-                   <select id="font-style">
-                       <option value="normal">Normal</option>
-                       <option value="italic">Italic</option>
-                       <option value="oblique">Oblique</option>
-                   </select>
-               </div>
+                        <div class="control-group">
+                            <label>Szöveg igazítás</label>
+                            <div class="button-group">
+                                <button class="btn btn-icon" onclick="setTextAlign('left')">
+                                    <i class="fas fa-align-left"></i>
+                                </button>
+                                <button class="btn btn-icon" onclick="setTextAlign('center')">
+                                    <i class="fas fa-align-center"></i>
+                                </button>
+                                <button class="btn btn-icon" onclick="setTextAlign('right')">
+                                    <i class="fas fa-align-right"></i>
+                                </button>
+                                <button class="btn btn-icon" onclick="setTextAlign('justify')">
+                                    <i class="fas fa-align-justify"></i>
+                                </button>
+                            </div>
+                        </div>
 
-               <div class="control-group">
-                   <label>Szöveg igazítás</label>
-                   <div class="button-group">
-                       <button class="btn btn-icon" onclick="setTextAlign('left')">
-                           <i class="fas fa-align-left"></i>
-                       </button>
-                       <button class="btn btn-icon" onclick="setTextAlign('center')">
-                           <i class="fas fa-align-center"></i>
-                       </button>
-                       <button class="btn btn-icon" onclick="setTextAlign('right')">
-                           <i class="fas fa-align-right"></i>
-                       </button>
-                       <button class="btn btn-icon" onclick="setTextAlign('justify')">
-                           <i class="fas fa-align-justify"></i>
-                       </button>
-                   </div>
-               </div>
+                        <div class="control-group">
+                            <label>Sormagasság</label>
+                            <div class="slider-group">
+                                <input type="range" min="10" max="30" value="16" class="slider" id="line-height">
+                                <span class="value">1.6</span>
+                            </div>
+                        </div>
 
-               <div class="control-group">
-                   <label>Sormagasság</label>
-                   <div class="slider-group">
-                       <input type="range" min="10" max="30" value="16" class="slider" id="line-height">
-                       <span class="value">1.6</span>
-                   </div>
-               </div>
+                        <div class="control-group">
+                            <label>Betűköz</label>
+                            <div class="slider-group">
+                                <input type="range" min="-2" max="10" value="0" class="slider" id="letter-spacing">
+                                <span class="value">0px</span>
+                            </div>
+                        </div>
 
-               <div class="control-group">
-                   <label>Betűköz</label>
-                   <div class="slider-group">
-                       <input type="range" min="-2" max="10" value="0" class="slider" id="letter-spacing">
-                       <span class="value">0px</span>
-                   </div>
-               </div>
+                        <div class="control-group">
+                            <label>Szöveg dekoráció</label>
+                            <select id="text-decoration">
+                                <option value="none">Nincs</option>
+                                <option value="underline">Aláhúzás</option>
+                                <option value="overline">Felülhúzás</option>
+                                <option value="line-through">Áthúzás</option>
+                            </select>
+                        </div>
 
-               <div class="control-group">
-                   <label>Szöveg dekoráció</label>
-                   <select id="text-decoration">
-                       <option value="none">Nincs</option>
-                       <option value="underline">Aláhúzás</option>
-                       <option value="overline">Felülhúzás</option>
-                       <option value="line-through">Áthúzás</option>
-                   </select>
-               </div>
+                        <div class="control-group">
+                            <label>Szöveg transzformáció</label>
+                            <select id="text-transform">
+                                <option value="none">Nincs</option>
+                                <option value="uppercase">NAGYBETŰS</option>
+                                <option value="lowercase">kisbetűs</option>
+                                <option value="capitalize">Szókezdő Nagybetű</option>
+                            </select>
+                        </div>
+                    </div>
 
-               <div class="control-group">
-                   <label>Szöveg transzformáció</label>
-                   <select id="text-transform">
-                       <option value="none">Nincs</option>
-                       <option value="uppercase">NAGYBETŰS</option>
-                       <option value="lowercase">kisbetűs</option>
-                       <option value="capitalize">Szókezdő Nagybetű</option>
-                   </select>
-               </div>
-           </div>
+                    <div class="visualization">
+                        <div class="text-preview">
+                            <p id="sample-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                    </div>
 
-           <div class="visualization">
-               <div class="text-preview">
-                   <p id="sample-text">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                   </p>
-               </div>
-           </div>
-
-           <div class="code-preview">
-               <pre><code class="language-css" id="typography-code">.text {
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="typography-code">.text {
    font-family: Arial, sans-serif;
    font-size: 16px;
    line-height: 1.6;
 }</code></pre>
-           </div>
-       </div>
-   </div>
+                    </div>
+                </div>
+            </div>
 
-   <style>
-       /* Tipográfia szekció stílusai */
-       .typography-demo {
-           display: grid;
-           grid-template-columns: 300px 1fr;
-           gap: 2rem;
-       }
+            <style>
+                /* Tipográfia szekció stílusai */
+                .typography-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
+                }
 
-       .text-preview {
-           background: var(--bg-primary);
-           padding: 2rem;
-           border-radius: 10px;
-           min-height: 300px;
-       }
+                .text-preview {
+                    background: var(--bg-primary);
+                    padding: 2rem;
+                    border-radius: 10px;
+                    min-height: 300px;
+                }
 
-       #sample-text {
-           color: var(--text-primary);
-           margin: 0;
-           transition: all 0.3s ease;
-       }
+                #sample-text {
+                    color: var(--text-primary);
+                    margin: 0;
+                    transition: all 0.3s ease;
+                }
 
-       .button-group {
-           display: flex;
-           gap: 0.5rem;
-       }
+                .button-group {
+                    display: flex;
+                    gap: 0.5rem;
+                }
 
-       .btn-icon {
-           padding: 0.5rem;
-           min-width: 40px;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-       }
+                .btn-icon {
+                    padding: 0.5rem;
+                    min-width: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
-       .btn-icon.active {
-           background: var(--accent-secondary);
-       }
-   </style>
+                .btn-icon.active {
+                    background: var(--accent-secondary);
+                }
+            </style>
 
-   <script>
-       document.addEventListener('DOMContentLoaded', () => {
-           const sampleText = document.getElementById('sample-text');
-           const fontFamily = document.getElementById('font-family');
-           const fontSize = document.getElementById('font-size');
-           const fontWeight = document.getElementById('font-weight');
-           const fontStyle = document.getElementById('font-style');
-           const lineHeight = document.getElementById('line-height');
-           const letterSpacing = document.getElementById('letter-spacing');
-           const textDecoration = document.getElementById('text-decoration');
-           const textTransform = document.getElementById('text-transform');
-           const codePreview = document.getElementById('typography-code');
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const sampleText = document.getElementById('sample-text');
+                    const fontFamily = document.getElementById('font-family');
+                    const fontSize = document.getElementById('font-size');
+                    const fontWeight = document.getElementById('font-weight');
+                    const fontStyle = document.getElementById('font-style');
+                    const lineHeight = document.getElementById('line-height');
+                    const letterSpacing = document.getElementById('letter-spacing');
+                    const textDecoration = document.getElementById('text-decoration');
+                    const textTransform = document.getElementById('text-transform');
+                    const codePreview = document.getElementById('typography-code');
 
-           function updateTypography() {
-               // Alapvető betűtulajdonságok
-               sampleText.style.fontFamily = fontFamily.value;
-               sampleText.style.fontSize = `${fontSize.value}px`;
-               sampleText.style.fontWeight = fontWeight.value;
-               sampleText.style.fontStyle = fontStyle.value;
+                    function updateTypography() {
+                        // Alapvető betűtulajdonságok
+                        sampleText.style.fontFamily = fontFamily.value;
+                        sampleText.style.fontSize = `${fontSize.value}px`;
+                        sampleText.style.fontWeight = fontWeight.value;
+                        sampleText.style.fontStyle = fontStyle.value;
 
-               // Sormagasság (10-30 értékek átkonvertálása 1-3 közötti értékekre)
-               const lineHeightValue = (parseInt(lineHeight.value) / 10).toFixed(1);
-               sampleText.style.lineHeight = lineHeightValue;
+                        // Sormagasság (10-30 értékek átkonvertálása 1-3 közötti értékekre)
+                        const lineHeightValue = (parseInt(lineHeight.value) / 10).toFixed(1);
+                        sampleText.style.lineHeight = lineHeightValue;
 
-               // Betűköz
-               sampleText.style.letterSpacing = `${letterSpacing.value}px`;
+                        // Betűköz
+                        sampleText.style.letterSpacing = `${letterSpacing.value}px`;
 
-               // Dekoráció és transzformáció
-               sampleText.style.textDecoration = textDecoration.value;
-               sampleText.style.textTransform = textTransform.value;
+                        // Dekoráció és transzformáció
+                        sampleText.style.textDecoration = textDecoration.value;
+                        sampleText.style.textTransform = textTransform.value;
 
-               // Kód előnézet frissítése
-               const code = `.text {
+                        // Kód előnézet frissítése
+                        const code = `.text {
    font-family: ${fontFamily.value};
    font-size: ${fontSize.value}px;
    font-weight: ${fontWeight.value};
@@ -2158,327 +2166,336 @@ li {
    text-align: ${sampleText.style.textAlign || 'left'};
 }`;
 
-               codePreview.textContent = code;
-               Prism.highlightElement(codePreview);
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview);
 
-               // Animáció a változásokhoz
-               anime({
-                   targets: '#sample-text',
-                   scale: [0.98, 1],
-                   duration: 300,
-                   easing: 'easeOutElastic(1, .8)'
-               });
-           }
+                        // Animáció a változásokhoz
+                        anime({
+                            targets: '#sample-text',
+                            scale: [0.98, 1],
+                            duration: 300,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+                    }
 
-           // Szöveg igazítás kezelése
-           window.setTextAlign = (align) => {
-               sampleText.style.textAlign = align;
-               // Aktív gomb jelölése
-               document.querySelectorAll('.btn-icon').forEach(btn => {
-                   btn.classList.remove('active');
-               });
-               event.currentTarget.classList.add('active');
-               updateTypography();
-           };
+                    // Szöveg igazítás kezelése
+                    window.setTextAlign = (align) => {
+                        sampleText.style.textAlign = align;
+                        // Aktív gomb jelölése
+                        document.querySelectorAll('.btn-icon').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        event.currentTarget.classList.add('active');
+                        updateTypography();
+                    };
 
-           // Eseménykezelők
-           [fontFamily, fontWeight, fontStyle, textDecoration, textTransform].forEach(select => {
-               select.addEventListener('change', updateTypography);
-           });
+                    // Eseménykezelők
+                    [fontFamily, fontWeight, fontStyle, textDecoration, textTransform].forEach(select => {
+                        select.addEventListener('change', updateTypography);
+                    });
 
-           [fontSize, lineHeight, letterSpacing].forEach(slider => {
-               slider.addEventListener('input', (e) => {
-                   let displayValue;
-                   if (e.target.id === 'line-height') {
-                       displayValue = (e.target.value / 10).toFixed(1);
-                   } else {
-                       displayValue = `${e.target.value}px`;
-                   }
-                   e.target.nextElementSibling.textContent = displayValue;
-                   updateTypography();
-               });
-           });
+                    [fontSize, lineHeight, letterSpacing].forEach(slider => {
+                        slider.addEventListener('input', (e) => {
+                            let displayValue;
+                            if (e.target.id === 'line-height') {
+                                displayValue = (e.target.value / 10).toFixed(1);
+                            } else {
+                                displayValue = `${e.target.value}px`;
+                            }
+                            e.target.nextElementSibling.textContent = displayValue;
+                            updateTypography();
+                        });
+                    });
 
-           // Kezdeti állapot
-           updateTypography();
-       });
-   </script>
-</section>
+                    // Kezdeti állapot
+                    updateTypography();
+                });
+            </script>
+        </section>
 
-<!-- Háttérképek szekció -->
-<section id="backgrounds">
-    <!-- Szekció címe -->
-    <h2 class="section-title">
-        <i class="fas fa-image"></i>
-        Háttérképek
-    </h2>
+        <!-- Háttérképek szekció -->
+        <section id="backgrounds">
+            <!-- Szekció címe -->
+            <h2 class="section-title">
+                <i class="fas fa-image"></i>
+                Háttérképek
+            </h2>
 
-    <!-- Interaktív kártya -->
-    <div class="card">
-        <div class="backgrounds-demo">
-            <!-- Vezérlőpanel (bal oldalon) -->
-            <div class="control-panel">
-                <div class="control-group">
-                    <label>Háttérkép méretezése</label>
-                    <select id="bg-size">
-                        <option value="cover">Cover (kitölt)</option>
-                        <option value="contain">Contain (belefér)</option>
-                        <option value="auto">Auto (eredeti)</option>
-                        <option value="100% 100%">Nyújtott</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>Háttérkép ismétlődése</label>
-                    <select id="bg-repeat">
-                        <option value="no-repeat">Nincs ismétlés</option>
-                        <option value="repeat">Ismétlés mindkét irányban</option>
-                        <option value="repeat-x">Vízszintes ismétlés</option>
-                        <option value="repeat-y">Függőleges ismétlés</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>Háttérkép pozíciója</label>
-                    <select id="bg-position">
-                        <option value="center center">Középen</option>
-                        <option value="top left">Bal felül</option>
-                        <option value="top right">Jobb felül</option>
-                        <option value="bottom left">Bal alul</option>
-                        <option value="bottom right">Jobb alul</option>
-                    </select>
-                </div>
-            </div>
+            <!-- Interaktív kártya -->
+            <div class="card">
+                <div class="backgrounds-demo">
+                    <!-- Vezérlőpanel (bal oldalon) -->
+                    <div class="control-panel">
+                        <div class="control-group">
+                            <label>Háttérkép méretezése</label>
+                            <select id="bg-size">
+                                <option value="cover">Cover (kitölt)</option>
+                                <option value="contain">Contain (belefér)</option>
+                                <option value="auto">Auto (eredeti)</option>
+                                <option value="100% 100%">Nyújtott</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Háttérkép ismétlődése</label>
+                            <select id="bg-repeat">
+                                <option value="no-repeat">Nincs ismétlés</option>
+                                <option value="repeat">Ismétlés mindkét irányban</option>
+                                <option value="repeat-x">Vízszintes ismétlés</option>
+                                <option value="repeat-y">Függőleges ismétlés</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Háttérkép pozíciója</label>
+                            <select id="bg-position">
+                                <option value="center center">Középen</option>
+                                <option value="top left">Bal felül</option>
+                                <option value="top right">Jobb felül</option>
+                                <option value="bottom left">Bal alul</option>
+                                <option value="bottom right">Jobb alul</option>
+                            </select>
+                        </div>
+                    </div>
 
-            <!-- Vizualizáció (jobb oldalon) -->
-            <div class="visualization">
-                <div class="bg-preview" id="bg-demo">
+                    <!-- Vizualizáció (jobb oldalon) -->
+                    <div class="visualization">
+                        <div class="bg-preview" id="bg-demo">
 
-                </div>
-            </div>
+                        </div>
+                    </div>
 
-            <!-- Kód előnézet -->
-            <div class="code-preview">
-                <pre><code class="language-css" id="background-code">.element {
+                    <!-- Kód előnézet -->
+                    <div class="code-preview">
+                        <pre><code class="language-css" id="background-code">.element {
     background-image: url('');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- CSS -->
-    <style>
-        /* Háttérek szekció elrendezése */
-        .backgrounds-demo {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
-        }
+            <!-- CSS -->
+            <style>
+                /* Háttérek szekció elrendezése */
+                .backgrounds-demo {
+                    display: grid;
+                    grid-template-columns: 300px 1fr;
+                    gap: 2rem;
+                }
 
-        /* Vezérlőpanel stílusai */
-        .control-panel {
-            background: var(--bg-primary, #0a1914);
-            border-radius: 10px;
-            padding: 1rem;
-        }
+                /* Vezérlőpanel stílusai */
+                .control-panel {
+                    background: var(--bg-primary, #0a1914);
+                    border-radius: 10px;
+                    padding: 1rem;
+                }
 
-        .control-group {
-            margin-bottom: 1rem;
-        }
+                .control-group {
+                    margin-bottom: 1rem;
+                }
 
-        /* Vizualizáció és háttérkép */
-        .visualization {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+                /* Vizualizáció és háttérkép */
+                .visualization {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
-        .bg-preview {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            background-color: var(--bg-secondary, #122420); /* Tartalék szín */
-            background-size: cover; /* Alapbeállítás */
-            background-position: center; /* Alapbeállítás */
-            background-repeat: no-repeat; /* Alapbeállítás */
-            border-radius: 10px;
-            overflow: hidden;
-        }
+                .bg-preview {
+                    position: relative;
+                    width: 100%;
+                    height: 300px;
+                    background-color: var(--bg-secondary, #122420);
+                    /* Tartalék szín */
+                    background-size: cover;
+                    /* Alapbeállítás */
+                    background-position: center;
+                    /* Alapbeállítás */
+                    background-repeat: no-repeat;
+                    /* Alapbeállítás */
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
 
-        .content-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            color: white;
-            z-index: 1;
-        }
+                .content-overlay {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 0, 0, 0.7);
+                    padding: 2rem;
+                    border-radius: 10px;
+                    text-align: center;
+                    color: white;
+                    z-index: 1;
+                }
 
-        .code-preview {
-            grid-column: 1 / -1; /* A kód előnézet teljes szélességet kap */
-            background: var(--bg-primary, #0a1914);
-            border-radius: 10px;
-            padding: 1rem;
-            overflow-x: auto;
-        }
+                .code-preview {
+                    grid-column: 1 / -1;
+                    /* A kód előnézet teljes szélességet kap */
+                    background: var(--bg-primary, #0a1914);
+                    border-radius: 10px;
+                    padding: 1rem;
+                    overflow-x: auto;
+                }
 
-        .code-preview code {
-            font-family: 'Fira Code', monospace;
-            color: var(--text-primary, #e0e0e0);
-        }
-    </style>
+                .code-preview code {
+                    font-family: 'Fira Code', monospace;
+                    color: var(--text-primary, #e0e0e0);
+                }
+            </style>
 
-    <!-- JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const bgDemo = document.getElementById('bg-demo');
-            const bgSize = document.getElementById('bg-size');
-            const bgRepeat = document.getElementById('bg-repeat');
-            const bgPosition = document.getElementById('bg-position');
-            const codePreview = document.getElementById('background-code');
+            <!-- JavaScript -->
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const bgDemo = document.getElementById('bg-demo');
+                    const bgSize = document.getElementById('bg-size');
+                    const bgRepeat = document.getElementById('bg-repeat');
+                    const bgPosition = document.getElementById('bg-position');
+                    const codePreview = document.getElementById('background-code');
 
-            function updateBackground() {
-                // Frissítjük a bg-preview háttérképét
-                // const imageUrl = "https://cdn.pixabay.com/photo/2024/08/15/19/19/highland-cow-8972000_1280.jpg";
-                const imageUrl = "https://picsum.photos/400/200";
-                bgDemo.style.backgroundSize = bgSize.value;
-                bgDemo.style.backgroundRepeat = bgRepeat.value;
-                bgDemo.style.backgroundPosition = bgPosition.value;
-                bgDemo.style.backgroundImage = `url('${imageUrl}')`;
+                    function updateBackground() {
+                        // Frissítjük a bg-preview háttérképét
+                        // const imageUrl = "https://cdn.pixabay.com/photo/2024/08/15/19/19/highland-cow-8972000_1280.jpg";
+                        const imageUrl = "https://picsum.photos/400/200";
+                        bgDemo.style.backgroundSize = bgSize.value;
+                        bgDemo.style.backgroundRepeat = bgRepeat.value;
+                        bgDemo.style.backgroundPosition = bgPosition.value;
+                        bgDemo.style.backgroundImage = `url('${imageUrl}')`;
 
-                // Kód előnézet frissítése
-                const code = `.element {
+                        // Kód előnézet frissítése
+                        const code = `.element {
     background-image: url('${imageUrl}');
     background-size: ${bgSize.value};
     background-position: ${bgPosition.value};
     background-repeat: ${bgRepeat.value};
 }`;
-                codePreview.textContent = code;
-                Prism.highlightElement(codePreview); // Prism.js szintaxis kiemelés
-            }
+                        codePreview.textContent = code;
+                        Prism.highlightElement(codePreview); // Prism.js szintaxis kiemelés
+                    }
 
-            // Eseménykezelők a vezérlőkhöz
-            [bgSize, bgRepeat, bgPosition].forEach(control => {
-                control.addEventListener('change', updateBackground);
-            });
+                    // Eseménykezelők a vezérlőkhöz
+                    [bgSize, bgRepeat, bgPosition].forEach(control => {
+                        control.addEventListener('change', updateBackground);
+                    });
 
-            // Kezdeti állapot
-            updateBackground();
-        });
-    </script>
-</section>
-
-
+                    // Kezdeti állapot
+                    updateBackground();
+                });
+            </script>
+        </section>
 
 
 
-<!-- Lábléc -->
-        </main>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mb-4 mb-md-0">
-                        <h3 class="h5 mb-3">Kapcsolat</h3>
-                        <p class="mb-2">Email: <a href="mailto:infotanar@infotanar.eu" class="footer-link">infotanar@infotanar.eu</a></p>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="h5 mb-3">Információk</h3>
-                        <p class="mb-2">Utolsó frissítés: 2025.01.22.</p>
-                        <p>License: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" class="footer-link">GNU General Public License v3.0</a></p>
-                    </div>
+
+
+        <!-- Lábléc -->
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Kapcsolat</h3>
+                    <p class="mb-2">Email: <a href="mailto:infotanar@infotanar.eu"
+                            class="footer-link">infotanar@infotanar.eu</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h5 mb-3">Információk</h3>
+                    <p class="mb-2">Utolsó frissítés: 2025.01.22.</p>
+                    <p>License: <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank"
+                            class="footer-link">GNU General Public License v3.0</a></p>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <style>
-            /* Footer stílusok */
-            footer {
-                background: var(--bg-secondary);
-                padding: 2rem 0;
-                margin-top: 4rem;
-                border-top: 1px solid var(--border-color);
-            }
+    <style>
+        /* Footer stílusok */
+        footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
 
-            .footer-link {
-                color: var(--accent-primary);
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
+        .footer-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-            .footer-link:hover {
-                color: var(--accent-secondary);
-                text-decoration: underline;
-            }
+        .footer-link:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
 
-            .row {
-                display: flex;
-                flex-wrap: wrap;
-                margin-right: -15px;
-                margin-left: -15px;
-            }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
 
+        .col-md-6 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .h5 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        @media (min-width: 768px) {
             .col-md-6 {
-                position: relative;
-                width: 100%;
-                padding-right: 15px;
-                padding-left: 15px;
+                flex: 0 0 50%;
+                max-width: 50%;
             }
 
-            .mb-4 {
-                margin-bottom: 1.5rem;
+            .mb-md-0 {
+                margin-bottom: 0;
             }
+        }
+    </style>
 
-            .mb-3 {
-                margin-bottom: 1rem;
-            }
+    <script>
+        // Oldal betöltésekor
+        document.addEventListener('DOMContentLoaded', () => {
+            // Prism újratöltése az összes kódblokkon
+            Prism.highlightAll();
 
-            .mb-2 {
-                margin-bottom: 0.5rem;
-            }
+            // Smooth scroll a navigációs linkekhez
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
 
-            .h5 {
-                font-size: 1.25rem;
-                color: var(--text-primary);
-            }
-
-            @media (min-width: 768px) {
-                .col-md-6 {
-                    flex: 0 0 50%;
-                    max-width: 50%;
-                }
-                .mb-md-0 {
-                    margin-bottom: 0;
-                }
-            }
-        </style>
-
-        <script>
-            // Oldal betöltésekor
-            document.addEventListener('DOMContentLoaded', () => {
-                // Prism újratöltése az összes kódblokkon
-                Prism.highlightAll();
-
-                // Smooth scroll a navigációs linkekhez
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
+
 </html>
